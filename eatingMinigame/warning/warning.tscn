@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://by4jug5j7be8t"]
+
+[ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="1_03lcx"]
+[ext_resource type="Script" uid="uid://d1c5mcvdndejy" path="res://eatingMinigame/warning/warning.gd" id="2_6xana"]
+
+[node name="warning" type="Sprite2D"]
+modulate = Color(0.815866, 0.194858, 5.77569e-07, 1)
+texture = ExtResource("1_03lcx")
+script = ExtResource("2_6xana")
+
+[node name="lifespan" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="lifespan" to="." method="_on_lifespan_timeout"]

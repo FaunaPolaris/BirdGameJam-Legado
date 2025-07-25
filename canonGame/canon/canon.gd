@@ -1,6 +1,6 @@
 extends Node2D
 
-var	main_character	= preload("res://mainCharacter/main_character.tscn")
+var	main_character	= preload("res://canonGame/mainCharacter/main_character.tscn")
 
 var offset_angle	: int = 90
 var	max_angle		: int = -90
@@ -18,6 +18,7 @@ func _process(delta : float):
 		var new_main = main_character.instantiate()
 		new_main.position = $mouth/tip.global_position
 		new_main.original_pos = new_main.position
-		new_main.rotation_degrees = $mouth/tip.global_rotation_degrees - offset_angle
+		new_main.supposed_rotation = $mouth/tip.global_rotation_degrees - offset_angle
 		new_main.force = force
 		add_child(new_main)
+		new_main.controlCamera()

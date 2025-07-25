@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://t52keyqcvf2n"]
 
-[ext_resource type="Script" uid="uid://ddhf1t6f288r3" path="res://canon/canon.gd" id="1_6b8qj"]
+[ext_resource type="Script" uid="uid://ddhf1t6f288r3" path="res://canonGame/canon/canon.gd" id="1_6b8qj"]
 [ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="1_fiqj8"]
 
 [node name="canon" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5xl5nd4ofm1d"]
 
-[ext_resource type="Script" uid="uid://cadcfd4beb3wt" path="res://mainCharacter/main_character.gd" id="1_exv1e"]
+[ext_resource type="Script" uid="uid://cadcfd4beb3wt" path="res://canonGame/mainCharacter/main_character.gd" id="1_exv1e"]
 [ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="2_vedcc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_exv1e"]
@@ -18,6 +18,9 @@ rotation = -0.0311578
 scale = Vector2(4.58213, 4.58213)
 shape = SubResource("CircleShape2D_me2vn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="art" type="Sprite2D" parent="."]
 scale = Vector2(0.619435, 0.582997)
 texture = ExtResource("2_vedcc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
