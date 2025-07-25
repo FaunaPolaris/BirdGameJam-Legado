@@ -6,7 +6,6 @@ var offset_angle	: int = 90
 var	max_angle		: int = -90
 var	min_angle		: int = 0
 var	canon_speed		: int = 50
-var	force			: int = 1000
 
 func _process(delta : float):
 	pass
@@ -19,6 +18,5 @@ func _process(delta : float):
 		new_main.position = $mouth/tip.global_position
 		new_main.original_pos = new_main.position
 		new_main.supposed_rotation = $mouth/tip.global_rotation_degrees - offset_angle
-		new_main.force = force
 		add_child(new_main)
-		new_main.controlCamera()
+		#new_main.controlCamera()

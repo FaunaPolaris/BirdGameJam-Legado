@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://csusdyfgyv2nr"]
 
-[ext_resource type="Script" uid="uid://8f0yn0q2fcd8" path="res://eater.gd" id="1_5fu8t"]
+[ext_resource type="Script" uid="uid://8f0yn0q2fcd8" path="res://eatingMinigame/eater/eater.gd" id="1_5fu8t"]
 [ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="2_icw0j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bykbf"]

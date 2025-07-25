@@ -18,3 +18,7 @@ func	_process(delta: float) -> void:
 func _on_peck_time_timeout() -> void:
 	$collision.disabled = true
 	$art.set_offset(Vector2(0, 32))
+
+
+func _on_clock_times_up() -> void:
+	get_tree().change_scene_to_file("res://canonGame/level/level.tscn")

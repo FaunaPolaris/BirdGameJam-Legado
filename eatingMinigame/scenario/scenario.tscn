@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn2q8m7x6j3va"]
+[gd_scene load_steps=8 format=3 uid="uid://cn2q8m7x6j3va"]
 
 [ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="1_jurgu"]
 [ext_resource type="PackedScene" uid="uid://csusdyfgyv2nr" path="res://eatingMinigame/eater/eater.tscn" id="2_1s0lt"]
 [ext_resource type="PackedScene" uid="uid://cktpbi461648m" path="res://eatingMinigame/foodDispenser/food_dispenser.tscn" id="3_lcefo"]
+[ext_resource type="PackedScene" uid="uid://cglc4x7n2mdte" path="res://eatingMinigame/clock/clock.tscn" id="4_kt38x"]
 
 [sub_resource type="Gradient" id="Gradient_lcefo"]
 colors = PackedColorArray(0.400795, 0.229145, 0.100229, 1, 0.665372, 0.507786, 0.2304, 1)
@@ -32,3 +33,9 @@ ignore_rotation = false
 
 [node name="foodDispenser" parent="." instance=ExtResource("3_lcefo")]
 position = Vector2(-946, 989)
+
+[node name="clock" parent="." instance=ExtResource("4_kt38x")]
+position = Vector2(-73, -509)
+seconds = 20
+
+[connection signal="timesUp" from="clock" to="eater" method="_on_clock_times_up"]

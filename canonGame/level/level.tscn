@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://j0ll3p56344r"]
+
+[ext_resource type="PackedScene" uid="uid://t52keyqcvf2n" path="res://canonGame/canon/canon.tscn" id="1_1njy3"]
+
+[node name="Level" type="Node2D"]
+
+[node name="canon" parent="." instance=ExtResource("1_1njy3")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, -540)
