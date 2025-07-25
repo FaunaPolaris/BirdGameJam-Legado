@@ -19,4 +19,4 @@ func _process(delta : float):
 		new_main.original_pos = new_main.position
 		new_main.supposed_rotation = $mouth/tip.global_rotation_degrees - offset_angle
 		add_child(new_main)
-		#new_main.controlCamera()
+		$"../Camera2D".followBullet(new_main)

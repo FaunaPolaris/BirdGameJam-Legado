@@ -7,7 +7,7 @@ signal timesUp
 
 func _on_timer_timeout() -> void:
 	seconds -= 1
-	if seconds == 0:
+	if seconds <= 0:
 		minutes -= 1
 		seconds = 60
 	if minutes < 0:

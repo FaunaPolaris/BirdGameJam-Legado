@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://cn2q8m7x6j3va"]
+[gd_scene load_steps=7 format=3 uid="uid://cn2q8m7x6j3va"]
 
-[ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="1_jurgu"]
 [ext_resource type="PackedScene" uid="uid://csusdyfgyv2nr" path="res://eatingMinigame/eater/eater.tscn" id="2_1s0lt"]
 [ext_resource type="PackedScene" uid="uid://cktpbi461648m" path="res://eatingMinigame/foodDispenser/food_dispenser.tscn" id="3_lcefo"]
 [ext_resource type="PackedScene" uid="uid://cglc4x7n2mdte" path="res://eatingMinigame/clock/clock.tscn" id="4_kt38x"]
@@ -20,11 +19,6 @@ noise = SubResource("FastNoiseLite_kt38x")
 position = Vector2(6, 468)
 scale = Vector2(3.86328, 1.40039)
 texture = SubResource("NoiseTexture2D_4hdqt")
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(785.5, -149.5)
-scale = Vector2(0.601563, 6.61719)
-texture = ExtResource("1_jurgu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
