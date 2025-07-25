@@ -50,21 +50,11 @@ offset_right = 4806.0
 offset_bottom = 920.0
 
 [node name="impulse" parent="." instance=ExtResource("4_vnhku")]
-position = Vector2(660, -654)
-impulsex = 400
+position = Vector2(799, -462)
+impulsex = -600
 impulsey = -100
 
 [node name="impulse2" parent="." instance=ExtResource("4_vnhku")]
-position = Vector2(853, -496)
-impulsex = 800
-impulsey = 30
-
-[node name="impulse3" parent="." instance=ExtResource("4_vnhku")]
-position = Vector2(1010, -281)
-impulsex = -200
-impulsey = -600
-
-[node name="impulse4" parent="." instance=ExtResource("4_vnhku")]
-position = Vector2(444, -785)
+position = Vector2(1459, -701)
 impulsex = -60
-impulsey = 80
+impulsey = -100

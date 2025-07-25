@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="bird"
-run/main_scene="uid://cn2q8m7x6j3va"
+run/main_scene="uid://do7qvalquw7j3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
