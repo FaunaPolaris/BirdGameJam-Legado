@@ -3,14 +3,13 @@
 [ext_resource type="Script" uid="uid://cadcfd4beb3wt" path="res://canonGame/mainCharacter/main_character.gd" id="1_exv1e"]
 [ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="2_vedcc"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_exv1e"]
-bounce = 0.4
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7l5se"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_me2vn"]
 
 [node name="mainCharacter" type="RigidBody2D"]
 rotation = -0.000905367
-physics_material_override = SubResource("PhysicsMaterial_exv1e")
+physics_material_override = SubResource("PhysicsMaterial_7l5se")
 script = ExtResource("1_exv1e")
 
 [node name="collision" type="CollisionShape2D" parent="."]
@@ -21,6 +20,3 @@ shape = SubResource("CircleShape2D_me2vn")
 [node name="art" type="Sprite2D" parent="."]
 scale = Vector2(0.619435, 0.582997)
 texture = ExtResource("2_vedcc")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-ignore_rotation = false

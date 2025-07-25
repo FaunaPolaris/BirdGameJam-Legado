@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://j0ll3p56344r"]
+[gd_scene load_steps=7 format=3 uid="uid://j0ll3p56344r"]
 
 [ext_resource type="PackedScene" uid="uid://t52keyqcvf2n" path="res://canonGame/canon/canon.tscn" id="1_1njy3"]
 [ext_resource type="Shader" uid="uid://cx6ooffi7n41c" path="res://canonGame/level/water.gdshader" id="2_64f4c"]
 [ext_resource type="Script" uid="uid://bds05ofn7ocoj" path="res://canonGame/level/camera_2d.gd" id="2_nel4u"]
+[ext_resource type="PackedScene" uid="uid://pia88a6c3b1i" path="res://canonGame/impulse/impulse.tscn" id="4_vnhku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nel4u"]
 size = Vector2(4804.5, 91)
@@ -35,7 +36,7 @@ script = ExtResource("2_nel4u")
 
 [node name="floor" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+[node name="collision" type="CollisionShape2D" parent="floor"]
 position = Vector2(2407.75, 83)
 shape = SubResource("RectangleShape2D_nel4u")
 
@@ -43,3 +44,23 @@ shape = SubResource("RectangleShape2D_nel4u")
 material = SubResource("ShaderMaterial_nel4u")
 offset_right = 4806.0
 offset_bottom = 920.0
+
+[node name="impulse" parent="." instance=ExtResource("4_vnhku")]
+position = Vector2(660, -654)
+impulsex = 400
+impulsey = -100
+
+[node name="impulse2" parent="." instance=ExtResource("4_vnhku")]
+position = Vector2(853, -496)
+impulsex = 800
+impulsey = 30
+
+[node name="impulse3" parent="." instance=ExtResource("4_vnhku")]
+position = Vector2(1010, -281)
+impulsex = -200
+impulsey = -600
+
+[node name="impulse4" parent="." instance=ExtResource("4_vnhku")]
+position = Vector2(444, -785)
+impulsex = -60
+impulsey = 80
