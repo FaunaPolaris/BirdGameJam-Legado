@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5xl5nd4ofm1d"]
+[gd_scene load_steps=6 format=3 uid="uid://c5xl5nd4ofm1d"]
 
 [ext_resource type="Script" uid="uid://cadcfd4beb3wt" path="res://canonGame/mainCharacter/main_character.gd" id="1_exv1e"]
 [ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="2_vedcc"]
+[ext_resource type="PackedScene" uid="uid://ch4no1kmuawrs" path="res://canonGame/distanceCounter/distance_counter.tscn" id="3_lhhoq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7l5se"]
 
@@ -20,3 +21,5 @@ shape = SubResource("CircleShape2D_me2vn")
 [node name="art" type="Sprite2D" parent="."]
 scale = Vector2(0.619435, 0.582997)
 texture = ExtResource("2_vedcc")
+
+[node name="distanceCounter" parent="." instance=ExtResource("3_lhhoq")]

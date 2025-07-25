@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch4no1kmuawrs"]
+
+[ext_resource type="Script" uid="uid://u6u3pc2b1q5h" path="res://canonGame/distanceCounter/distance_counter.gd" id="1_6xkdt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlbcd"]
+font_size = 64
+
+[node name="distanceCounter" type="CanvasLayer"]
+script = ExtResource("1_6xkdt")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(1920, 0)
+offset_right = 1909.0
+offset_bottom = 23.0
+text = "000000 m"
+label_settings = SubResource("LabelSettings_vlbcd")
+horizontal_alignment = 1
