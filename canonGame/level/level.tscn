@@ -1,60 +1,173 @@
-[gd_scene load_steps=8 format=3 uid="uid://j0ll3p56344r"]
+[gd_scene load_steps=16 format=3 uid="uid://j0ll3p56344r"]
 
 [ext_resource type="PackedScene" uid="uid://t52keyqcvf2n" path="res://canonGame/canon/canon.tscn" id="1_1njy3"]
-[ext_resource type="Shader" uid="uid://cx6ooffi7n41c" path="res://canonGame/level/water.gdshader" id="2_64f4c"]
+[ext_resource type="Script" uid="uid://difvtsf6srejg" path="res://canonGame/level/level.gd" id="1_3jpai"]
 [ext_resource type="Script" uid="uid://bds05ofn7ocoj" path="res://canonGame/level/camera_2d.gd" id="2_nel4u"]
-[ext_resource type="PackedScene" uid="uid://pia88a6c3b1i" path="res://canonGame/impulse/impulse.tscn" id="4_vnhku"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vnhku"]
-rough = true
+[ext_resource type="Texture2D" uid="uid://ddls23kveavui" path="res://textures/background/clouds/cloud_front_3.png" id="2_w0isi"]
+[ext_resource type="Texture2D" uid="uid://bb4bafj1jgmjb" path="res://textures/background/bg_start.png" id="2_wc3sl"]
+[ext_resource type="Script" uid="uid://52fv25itwr1s" path="res://canonGame/level/floor.gd" id="3_vnhku"]
+[ext_resource type="Script" uid="uid://dfonb542bqems" path="res://canonGame/level/ceiling.gd" id="5_tei5g"]
+[ext_resource type="Texture2D" uid="uid://tj0r05cxtju6" path="res://textures/waves/wave_back.png" id="6_81lgp"]
+[ext_resource type="Texture2D" uid="uid://bipwp5b0nulv4" path="res://textures/background/bg_right.png" id="7_rrcc1"]
+[ext_resource type="Texture2D" uid="uid://6qdwgtjfo828" path="res://textures/background/bg_up.png" id="8_0aevh"]
+[ext_resource type="Texture2D" uid="uid://b0xujctcu0yji" path="res://textures/waves/wave_front.png" id="8_oki1q"]
+[ext_resource type="Texture2D" uid="uid://cbcrx2mg0kiuh" path="res://textures/background/bg_up_2.png" id="9_w0isi"]
+[ext_resource type="Texture2D" uid="uid://tmoebky4wvsx" path="res://textures/background/clouds/cloud_front_1.png" id="10_e8frv"]
+[ext_resource type="Texture2D" uid="uid://dtqy85rampyw0" path="res://textures/background/clouds/cloud_front_2.png" id="11_w1o5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nel4u"]
-size = Vector2(4804.5, 91)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nel4u"]
-shader = ExtResource("2_64f4c")
-shader_parameter/offSet = 0.0
-shader_parameter/YDistortion = 1.0
-shader_parameter/waterColor = Color(0.117, 0.27, 0.58, 1)
-shader_parameter/colorCorection = 0.35
-shader_parameter/distortionForce = 0.01
-shader_parameter/WDBrightness = 1.5
-shader_parameter/WDFreq = 0.6
-shader_parameter/WDSize = 0.9
-shader_parameter/WDSpeed = 4.0
-shader_parameter/tiling = Vector2(1, 1)
-shader_parameter/offSetSpeed = Vector2(0.1, 0.1)
-shader_parameter/backGroundDirX = 0.01
-shader_parameter/backGroundDirY = 0.01
+size = Vector2(1920, 100)
 
 [node name="Level" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_3jpai")
+
+[node name="BgStart" type="Sprite2D" parent="."]
+position = Vector2(640, -236)
+scale = Vector2(4, 4)
+texture = ExtResource("2_wc3sl")
+
+[node name="clouds" type="Parallax2D" parent="."]
+texture_filter = 1
+repeat_size = Vector2(1280, 0)
+autoscroll = Vector2(64, 0)
+repeat_times = 2
+
+[node name="CloudFront1" type="Sprite2D" parent="clouds"]
+position = Vector2(572, -514)
+scale = Vector2(4, 4)
+texture = ExtResource("10_e8frv")
+
+[node name="CloudFront9" type="Sprite2D" parent="clouds"]
+position = Vector2(995, -362)
+scale = Vector2(4, 4)
+texture = ExtResource("10_e8frv")
+
+[node name="CloudFront10" type="Sprite2D" parent="clouds"]
+position = Vector2(136, -494)
+scale = Vector2(4, 4)
+texture = ExtResource("10_e8frv")
+
+[node name="CloudFront11" type="Sprite2D" parent="clouds"]
+position = Vector2(855, -512)
+scale = Vector2(4, 4)
+texture = ExtResource("10_e8frv")
+
+[node name="CloudFront4" type="Sprite2D" parent="clouds"]
+position = Vector2(1021, -745)
+scale = Vector2(4, 4)
+texture = ExtResource("10_e8frv")
+
+[node name="CloudFront2" type="Sprite2D" parent="clouds"]
+position = Vector2(777, -461)
+scale = Vector2(4, 4)
+texture = ExtResource("11_w1o5i")
+
+[node name="CloudFront5" type="Sprite2D" parent="clouds"]
+position = Vector2(171, -809)
+scale = Vector2(4, 4)
+texture = ExtResource("11_w1o5i")
+
+[node name="CloudFront3" type="Sprite2D" parent="clouds"]
+position = Vector2(554, -840)
+scale = Vector2(4, 4)
+texture = ExtResource("2_w0isi")
+
+[node name="CloudFront6" type="Sprite2D" parent="clouds"]
+position = Vector2(260, -485)
+scale = Vector2(4, 4)
+texture = ExtResource("2_w0isi")
+
+[node name="CloudFront7" type="Sprite2D" parent="clouds"]
+position = Vector2(1109, -467)
+scale = Vector2(4, 4)
+texture = ExtResource("2_w0isi")
+
+[node name="CloudFront12" type="Sprite2D" parent="clouds"]
+position = Vector2(14, -469)
+scale = Vector2(4, 4)
+texture = ExtResource("2_w0isi")
+
+[node name="CloudFront8" type="Sprite2D" parent="clouds"]
+position = Vector2(422, -407)
+scale = Vector2(4, 4)
+texture = ExtResource("2_w0isi")
+
+[node name="waveBack" type="Parallax2D" parent="."]
+scroll_offset = Vector2(1, -1)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(12, 0)
+repeat_times = 2
+
+[node name="WaveBack" type="Sprite2D" parent="waveBack"]
+position = Vector2(620, 89)
+scale = Vector2(4, 4)
+texture = ExtResource("6_81lgp")
 
 [node name="canon" parent="." instance=ExtResource("1_1njy3")]
 
+[node name="waveFront" type="Parallax2D" parent="."]
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(32, 0)
+repeat_times = 2
+
+[node name="WaveFront" type="Sprite2D" parent="waveFront"]
+position = Vector2(620, 109)
+scale = Vector2(4, 4)
+texture = ExtResource("8_oki1q")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, -374)
-limit_top = -1400
+position = Vector2(633, -168)
+limit_left = 0
+limit_top = -1700
+limit_bottom = 125
 position_smoothing_enabled = true
 script = ExtResource("2_nel4u")
 
-[node name="floor" type="StaticBody2D" parent="."]
-physics_material_override = SubResource("PhysicsMaterial_vnhku")
+[node name="floor" type="Area2D" parent="."]
+position = Vector2(2, 217)
+script = ExtResource("3_vnhku")
 
 [node name="collision" type="CollisionShape2D" parent="floor"]
-position = Vector2(2407.75, 83)
+position = Vector2(956, -52)
 shape = SubResource("RectangleShape2D_nel4u")
 
-[node name="water" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_nel4u")
-offset_right = 4806.0
-offset_bottom = 920.0
+[node name="ceiling" type="StaticBody2D" parent="."]
+position = Vector2(24, -1606)
+collision_layer = 4
+script = ExtResource("5_tei5g")
 
-[node name="impulse" parent="." instance=ExtResource("4_vnhku")]
-position = Vector2(799, -462)
-impulsex = -600
-impulsey = -100
+[node name="collision" type="CollisionShape2D" parent="ceiling"]
+position = Vector2(960, 14)
+shape = SubResource("RectangleShape2D_nel4u")
+disabled = true
 
-[node name="impulse2" parent="." instance=ExtResource("4_vnhku")]
-position = Vector2(1459, -701)
-impulsex = -60
-impulsey = -100
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="BgRight" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(640, -236)
+scale = Vector2(4, 4)
+texture = ExtResource("7_rrcc1")
+
+[node name="BgUp" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(640, -956)
+scale = Vector2(4, 4)
+texture = ExtResource("8_0aevh")
+
+[node name="BgUp2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(640, -1676)
+scale = Vector2(4, 4)
+texture = ExtResource("9_w0isi")
+
+[node name="impulse_spawn" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
+
+[connection signal="body_entered" from="floor" to="." method="_on_floor_body_entered"]
+[connection signal="timeout" from="impulse_spawn" to="." method="_on_impulse_spawn_timeout"]

@@ -5,11 +5,13 @@ var	supposed_rotation	: float = 0
 var original_pos : Vector2 = Vector2.ZERO
 
 func	_process(delta: float) -> void:
-	$distanceCounter.setDistance((global_position.x - original_pos.x) / 100)
+	Global.distance = (global_position.x - original_pos.x) / 100
+	Global.position = global_position
+	$distanceCounter.setDistance(Global.distance)
 
 func	_ready() -> void:
 	rotation = supposed_rotation
-	apply_impulse(Vector2(Global.current_fat, 0).rotated(deg_to_rad(supposed_rotation)), original_pos - position)
+	apply_impulse(Vector2(1500, 0).rotated(deg_to_rad(supposed_rotation)), original_pos - position)
 
 func	impulse(forcex, forcey):
 	apply_impulse(Vector2(forcex, forcey), original_pos - position)

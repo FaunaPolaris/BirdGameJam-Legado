@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://m2h8k75qga0p" path="res://title_screen.gd" id="1_pl3da"]
 
-[sub_resource type="Gradient" id="Gradient_6tb03"]
+[sub_resource type="Gradient" id="Gradient_pl3da"]
 offsets = PackedFloat32Array(0.038961, 0.512987, 1)
 colors = PackedColorArray(0.364706, 0.270588, 0, 1, 0.38867, 0.353662, 0.0534956, 1, 0.383055, 0.553075, 0.212779, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_r2m6p"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6tb03"]
 noise_type = 2
 frequency = 0.0343
 fractal_type = 3
@@ -16,8 +16,8 @@ fractal_gain = 0.355
 fractal_ping_pong_strength = 10.02
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lgygr"]
-color_ramp = SubResource("Gradient_6tb03")
-noise = SubResource("FastNoiseLite_r2m6p")
+color_ramp = SubResource("Gradient_pl3da")
+noise = SubResource("FastNoiseLite_6tb03")
 
 [sub_resource type="LabelSettings" id="LabelSettings_llf2v"]
 font_size = 180

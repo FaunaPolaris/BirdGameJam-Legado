@@ -1,3 +1,5 @@
 extends Node
 
-var current_fat : int = 0
+var current_fat	: int = 0
+var	distance	: int = 0
+var position	: Vector2 = Vector2.ZERO

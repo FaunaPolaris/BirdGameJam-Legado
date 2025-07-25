@@ -1,20 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://t52keyqcvf2n"]
+[gd_scene load_steps=6 format=3 uid="uid://t52keyqcvf2n"]
 
 [ext_resource type="Script" uid="uid://ddhf1t6f288r3" path="res://canonGame/canon/canon.gd" id="1_6b8qj"]
-[ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="1_fiqj8"]
+[ext_resource type="Texture2D" uid="uid://cjp7hk386746m" path="res://textures/cannon/cannon.png" id="2_r4el3"]
+[ext_resource type="Texture2D" uid="uid://dab0lvw617j4a" path="res://textures/cannon/cannon_wheel.png" id="3_r4el3"]
+[ext_resource type="Texture2D" uid="uid://cp6hswjsd5bsg" path="res://textures/cannon/cannon_base.png" id="4_5kyjt"]
+[ext_resource type="Texture2D" uid="uid://pmdi7vsru3x1" path="res://textures/cannon/dock.png" id="5_fymf5"]
 
 [node name="canon" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_6b8qj")
 
 [node name="mouth" type="Sprite2D" parent="."]
-position = Vector2(5.96046e-08, -5.96046e-08)
-rotation = -0.683328
-scale = Vector2(1.81154, 0.510967)
-texture = ExtResource("1_fiqj8")
-offset = Vector2(64, -4.78752)
+position = Vector2(63, -41)
+rotation = 0.785398
+scale = Vector2(4, 4)
+texture = ExtResource("2_r4el3")
+offset = Vector2(0, -26.7875)
 
 [node name="tip" type="Node2D" parent="mouth"]
-position = Vector2(114.805, -6.39398)
-rotation = 1.56637
-scale = Vector2(1.95685, 0.552804)
+position = Vector2(0, -56)
+scale = Vector2(4, 4)
 skew = -0.0512058
+
+[node name="CannonWheel" type="Sprite2D" parent="."]
+position = Vector2(63, -41)
+scale = Vector2(4, 4)
+texture = ExtResource("3_r4el3")
+
+[node name="CannonBase" type="Sprite2D" parent="."]
+position = Vector2(96, -40)
+scale = Vector2(4, 4)
+texture = ExtResource("4_5kyjt")
+
+[node name="dock" type="Sprite2D" parent="."]
+position = Vector2(228, 78)
+scale = Vector2(4, 4)
+texture = ExtResource("5_fymf5")
