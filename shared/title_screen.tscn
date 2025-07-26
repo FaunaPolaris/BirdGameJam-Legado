@@ -1,26 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://do7qvalquw7j3"]
+[gd_scene load_steps=13 format=3 uid="uid://do7qvalquw7j3"]
 
 [ext_resource type="Script" uid="uid://m2h8k75qga0p" path="res://title_screen.gd" id="1_pl3da"]
-
-[sub_resource type="Gradient" id="Gradient_pl3da"]
-offsets = PackedFloat32Array(0.038961, 0.512987, 1)
-colors = PackedColorArray(0.364706, 0.270588, 0, 1, 0.38867, 0.353662, 0.0534956, 1, 0.383055, 0.553075, 0.212779, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6tb03"]
-noise_type = 2
-frequency = 0.0343
-fractal_type = 3
-fractal_octaves = 10
-fractal_lacunarity = -0.82
-fractal_gain = 0.355
-fractal_ping_pong_strength = 10.02
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lgygr"]
-color_ramp = SubResource("Gradient_pl3da")
-noise = SubResource("FastNoiseLite_6tb03")
-
-[sub_resource type="LabelSettings" id="LabelSettings_llf2v"]
-font_size = 180
+[ext_resource type="Texture2D" uid="uid://bipwp5b0nulv4" path="res://textures/background/bg_right.png" id="2_7tu6d"]
+[ext_resource type="Texture2D" uid="uid://tmoebky4wvsx" path="res://textures/background/clouds/cloud_front_1.png" id="3_e728s"]
+[ext_resource type="Texture2D" uid="uid://dtqy85rampyw0" path="res://textures/background/clouds/cloud_front_2.png" id="4_kg3b4"]
+[ext_resource type="Texture2D" uid="uid://ddls23kveavui" path="res://textures/background/clouds/cloud_front_3.png" id="5_mbslf"]
+[ext_resource type="Texture2D" uid="uid://tj0r05cxtju6" path="res://textures/waves/wave_back.png" id="6_jr3om"]
+[ext_resource type="Texture2D" uid="uid://b0xujctcu0yji" path="res://textures/waves/wave_front.png" id="7_fmxxa"]
+[ext_resource type="Texture2D" uid="uid://bgf74v6se38ky" path="res://textures/ui/menu/M.png" id="8_u3etj"]
+[ext_resource type="Texture2D" uid="uid://c8k3qetplwem7" path="res://textures/ui/menu/I.png" id="9_y2fom"]
+[ext_resource type="Texture2D" uid="uid://cm7xjenu7ptck" path="res://textures/ui/menu/G.png" id="10_oia1i"]
+[ext_resource type="Texture2D" uid="uid://cduo73ajqhii3" path="res://textures/ui/menu/R.png" id="11_nmotf"]
+[ext_resource type="Texture2D" uid="uid://bngrtfprwf06u" path="res://textures/ui/menu/O.png" id="12_m80ih"]
 
 [node name="titleScreen" type="Control"]
 layout_mode = 3
@@ -31,28 +22,119 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pl3da")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(640, 362.5)
-scale = Vector2(2.47656, 1.41211)
-texture = SubResource("NoiseTexture2D_lgygr")
+[node name="BgRight" type="Sprite2D" parent="."]
+position = Vector2(641, 360)
+scale = Vector2(4, 4)
+texture = ExtResource("2_7tu6d")
 
-[node name="box" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = 128
+[node name="clouds" type="Parallax2D" parent="."]
+texture_filter = 1
+scroll_offset = Vector2(-16, 584)
+repeat_size = Vector2(1280, 0)
+autoscroll = Vector2(-12, 0)
+repeat_times = 2
 
-[node name="title" type="Label" parent="box"]
-custom_minimum_size = Vector2(1280, 420)
+[node name="CloudFront1" type="Sprite2D" parent="clouds"]
+position = Vector2(572, -514)
+scale = Vector2(4, 4)
+texture = ExtResource("3_e728s")
+
+[node name="CloudFront9" type="Sprite2D" parent="clouds"]
+position = Vector2(995, -362)
+scale = Vector2(4, 4)
+texture = ExtResource("3_e728s")
+
+[node name="CloudFront10" type="Sprite2D" parent="clouds"]
+position = Vector2(136, -494)
+scale = Vector2(4, 4)
+texture = ExtResource("3_e728s")
+
+[node name="CloudFront11" type="Sprite2D" parent="clouds"]
+position = Vector2(855, -512)
+scale = Vector2(4, 4)
+texture = ExtResource("3_e728s")
+
+[node name="CloudFront2" type="Sprite2D" parent="clouds"]
+position = Vector2(777, -461)
+scale = Vector2(4, 4)
+texture = ExtResource("4_kg3b4")
+
+[node name="CloudFront6" type="Sprite2D" parent="clouds"]
+position = Vector2(260, -485)
+scale = Vector2(4, 4)
+texture = ExtResource("5_mbslf")
+
+[node name="CloudFront7" type="Sprite2D" parent="clouds"]
+position = Vector2(1109, -467)
+scale = Vector2(4, 4)
+texture = ExtResource("5_mbslf")
+
+[node name="CloudFront12" type="Sprite2D" parent="clouds"]
+position = Vector2(14, -469)
+scale = Vector2(4, 4)
+texture = ExtResource("5_mbslf")
+
+[node name="CloudFront8" type="Sprite2D" parent="clouds"]
+position = Vector2(422, -407)
+scale = Vector2(4, 4)
+texture = ExtResource("5_mbslf")
+
+[node name="waveBack" type="Parallax2D" parent="."]
+texture_filter = 1
+scroll_offset = Vector2(-1122, 630)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(32, 0)
+repeat_times = 3
+
+[node name="WaveBack" type="Sprite2D" parent="waveBack"]
+position = Vector2(1743, 98)
+scale = Vector2(4, 4)
+texture = ExtResource("6_jr3om")
+
+[node name="waveFront" type="Parallax2D" parent="."]
+texture_filter = 1
+scroll_offset = Vector2(-1124, 587)
+repeat_size = Vector2(1240, 0)
+autoscroll = Vector2(64, 0)
+repeat_times = 2
+
+[node name="WaveFront" type="Sprite2D" parent="waveFront"]
+position = Vector2(1740, 173)
+scale = Vector2(4, 4)
+texture = ExtResource("7_fmxxa")
+
+[node name="startGame" type="Button" parent="."]
 layout_mode = 2
-text = "Title"
-label_settings = SubResource("LabelSettings_llf2v")
-horizontal_alignment = 1
-vertical_alignment = 2
-
-[node name="startGame" type="Button" parent="box"]
-layout_mode = 2
+offset_left = 523.0
+offset_top = 483.0
+offset_right = 790.0
+offset_bottom = 558.0
 theme_override_font_sizes/font_size = 48
 text = "start Game"
 
-[connection signal="pressed" from="box/startGame" to="." method="_on_start_game_pressed"]
+[node name="Title" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(264, -240)
+scale = Vector2(4, 4)
+
+[node name="M" type="Sprite2D" parent="Title"]
+position = Vector2(24, 110)
+texture = ExtResource("8_u3etj")
+
+[node name="I" type="Sprite2D" parent="Title"]
+position = Vector2(60, 110)
+texture = ExtResource("9_y2fom")
+
+[node name="G" type="Sprite2D" parent="Title"]
+position = Vector2(88, 110)
+texture = ExtResource("10_oia1i")
+
+[node name="R" type="Sprite2D" parent="Title"]
+position = Vector2(126, 110)
+texture = ExtResource("11_nmotf")
+
+[node name="O" type="Sprite2D" parent="Title"]
+position = Vector2(166, 110)
+texture = ExtResource("12_m80ih")
+
+[connection signal="pressed" from="startGame" to="." method="_on_start_game_pressed"]

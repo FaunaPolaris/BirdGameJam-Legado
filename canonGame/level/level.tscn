@@ -1,12 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://j0ll3p56344r"]
+[gd_scene load_steps=19 format=3 uid="uid://j0ll3p56344r"]
 
 [ext_resource type="PackedScene" uid="uid://t52keyqcvf2n" path="res://canonGame/canon/canon.tscn" id="1_1njy3"]
-[ext_resource type="Script" path="res://canonGame/level/level.gd" id="1_3jpai"]
+[ext_resource type="Script" uid="uid://difvtsf6srejg" path="res://canonGame/level/level.gd" id="1_3jpai"]
 [ext_resource type="Script" uid="uid://bds05ofn7ocoj" path="res://canonGame/level/camera_2d.gd" id="2_nel4u"]
 [ext_resource type="Texture2D" uid="uid://ddls23kveavui" path="res://textures/background/clouds/cloud_front_3.png" id="2_w0isi"]
 [ext_resource type="Texture2D" uid="uid://bb4bafj1jgmjb" path="res://textures/background/bg_start.png" id="2_wc3sl"]
-[ext_resource type="Script" path="res://canonGame/level/floor.gd" id="3_vnhku"]
-[ext_resource type="Script" path="res://canonGame/level/ceiling.gd" id="5_tei5g"]
+[ext_resource type="Script" uid="uid://52fv25itwr1s" path="res://canonGame/level/floor.gd" id="3_vnhku"]
+[ext_resource type="Script" uid="uid://dfonb542bqems" path="res://canonGame/level/ceiling.gd" id="5_tei5g"]
 [ext_resource type="Texture2D" uid="uid://tj0r05cxtju6" path="res://textures/waves/wave_back.png" id="6_81lgp"]
 [ext_resource type="Texture2D" uid="uid://bipwp5b0nulv4" path="res://textures/background/bg_right.png" id="7_rrcc1"]
 [ext_resource type="Texture2D" uid="uid://6qdwgtjfo828" path="res://textures/background/bg_up.png" id="8_0aevh"]
@@ -17,6 +17,139 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nel4u"]
 size = Vector2(1920, 100)
+
+[sub_resource type="Animation" id="Animation_oki1q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("waveBack/WaveBack:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("waveFront/WaveFront:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("canon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("waveBack/WaveBack:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1886, 146)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("waveFront/WaveFront:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1880, -50)]
+}
+
+[sub_resource type="Animation" id="Animation_81lgp"]
+resource_name = "transition"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("waveBack/WaveBack:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("waveFront/WaveFront:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("canon:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 500), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("waveBack/WaveBack:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(797, -585), Vector2(776, 110)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("waveFront/WaveFront:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1884, 167), Vector2(1848, 873)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5y32"]
+_data = {
+&"RESET": SubResource("Animation_oki1q"),
+&"transition": SubResource("Animation_81lgp")
+}
 
 [node name="Level" type="Node2D"]
 texture_filter = 1
@@ -94,25 +227,28 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_w0isi")
 
 [node name="waveBack" type="Parallax2D" parent="."]
-scroll_offset = Vector2(1, -1)
+scroll_offset = Vector2(-40, 338)
 repeat_size = Vector2(1240, 0)
 autoscroll = Vector2(32, 0)
 repeat_times = 2
 
 [node name="WaveBack" type="Sprite2D" parent="waveBack"]
-position = Vector2(620, 89)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1886, 146)
 scale = Vector2(4, 4)
 texture = ExtResource("6_81lgp")
 
 [node name="canon" parent="." instance=ExtResource("1_1njy3")]
 
 [node name="waveFront" type="Parallax2D" parent="."]
+scroll_offset = Vector2(-990, -410)
 repeat_size = Vector2(1240, 0)
 autoscroll = Vector2(64, 0)
 repeat_times = 2
 
 [node name="WaveFront" type="Sprite2D" parent="waveFront"]
-position = Vector2(620, 109)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1880, -50)
 scale = Vector2(4, 4)
 texture = ExtResource("8_oki1q")
 
@@ -166,8 +302,13 @@ scale = Vector2(4, 4)
 texture = ExtResource("9_w0isi")
 
 [node name="impulse_spawn" type="Timer" parent="."]
-wait_time = 0.6
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i5y32")
+}
 
 [connection signal="body_entered" from="floor" to="." method="_on_floor_body_entered"]
 [connection signal="timeout" from="impulse_spawn" to="." method="_on_impulse_spawn_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="canon" method="_on_animation_player_animation_finished"]

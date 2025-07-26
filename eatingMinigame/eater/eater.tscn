@@ -1,24 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://csusdyfgyv2nr"]
 
 [ext_resource type="Script" uid="uid://8f0yn0q2fcd8" path="res://eatingMinigame/eater/eater.gd" id="1_5fu8t"]
-[ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="2_icw0j"]
+[ext_resource type="Texture2D" uid="uid://hg25lq2ijf4e" path="res://textures/character/batuira.png" id="2_dln4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bykbf"]
-size = Vector2(86, 202.5)
+size = Vector2(82, 167.5)
 
 [node name="eater" type="CharacterBody2D"]
 script = ExtResource("1_5fu8t")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 101.75)
+position = Vector2(0, 84.25)
 shape = SubResource("RectangleShape2D_bykbf")
 disabled = true
 
 [node name="art" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-9.53674e-07, 0)
-scale = Vector2(1.23438, 1)
-texture = ExtResource("2_icw0j")
-offset = Vector2(0, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_dln4g")
+flip_v = true
 
 [node name="peckTime" type="Timer" parent="."]
 wait_time = 0.3
