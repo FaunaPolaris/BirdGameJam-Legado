@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm4c7mad2cnwj"
-path="res://.godot/imported/cloud_back_1.png-352c82b4575f94715d35fb4f7b32cfb1.ctex"
+uid="uid://hg25lq2ijf4e"
+path="res://.godot/imported/batuira.png-d7998a85f999980c795ff4b20c018587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/background/clouds/cloud_back_1.png"
-dest_files=["res://.godot/imported/cloud_back_1.png-352c82b4575f94715d35fb4f7b32cfb1.ctex"]
+source_file="res://textures/character/batuira.png"
+dest_files=["res://.godot/imported/batuira.png-d7998a85f999980c795ff4b20c018587.ctex"]
 
 [params]
 
