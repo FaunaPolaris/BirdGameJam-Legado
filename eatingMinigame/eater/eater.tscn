@@ -24,4 +24,8 @@ offset = Vector2(0, 32)
 wait_time = 0.3
 one_shot = true
 
+[node name="peckTimeout" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="peckTime" to="." method="_on_peck_time_timeout"]
+[connection signal="timeout" from="peckTimeout" to="." method="_on_peck_timeout_timeout"]

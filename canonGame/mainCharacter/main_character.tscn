@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5xl5nd4ofm1d"]
+[gd_scene load_steps=6 format=3 uid="uid://c5xl5nd4ofm1d"]
 
 [ext_resource type="Script" uid="uid://cadcfd4beb3wt" path="res://canonGame/mainCharacter/main_character.gd" id="1_exv1e"]
 [ext_resource type="Texture2D" uid="uid://hg25lq2ijf4e" path="res://textures/character/batuira.png" id="2_lhhoq"]
 [ext_resource type="PackedScene" uid="uid://ch4no1kmuawrs" path="res://canonGame/distanceCounter/distance_counter.tscn" id="3_lhhoq"]
+[ext_resource type="Script" uid="uid://bds05ofn7ocoj" path="res://canonGame/level/camera_2d.gd" id="4_mspd1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_me2vn"]
 
@@ -24,3 +25,11 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_lhhoq")
 
 [node name="distanceCounter" parent="." instance=ExtResource("3_lhhoq")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(633, -168)
+limit_left = 0
+limit_top = -1700
+limit_bottom = 125
+position_smoothing_enabled = true
+script = ExtResource("4_mspd1")
