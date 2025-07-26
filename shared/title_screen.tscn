@@ -32,8 +32,8 @@ grow_vertical = 2
 script = ExtResource("1_pl3da")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(962.5, 541)
-scale = Vector2(3.73633, 2.10938)
+position = Vector2(640, 362.5)
+scale = Vector2(2.47656, 1.41211)
 texture = SubResource("NoiseTexture2D_lgygr")
 
 [node name="box" type="VBoxContainer" parent="."]
@@ -43,7 +43,7 @@ offset_bottom = 40.0
 theme_override_constants/separation = 128
 
 [node name="title" type="Label" parent="box"]
-custom_minimum_size = Vector2(1920, 420)
+custom_minimum_size = Vector2(1280, 420)
 layout_mode = 2
 text = "Title"
 label_settings = SubResource("LabelSettings_llf2v")

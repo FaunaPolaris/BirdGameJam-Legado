@@ -30,7 +30,7 @@ texture = ExtResource("2_wc3sl")
 [node name="clouds" type="Parallax2D" parent="."]
 texture_filter = 1
 repeat_size = Vector2(1280, 0)
-autoscroll = Vector2(64, 0)
+autoscroll = Vector2(-12, 0)
 repeat_times = 2
 
 [node name="CloudFront1" type="Sprite2D" parent="clouds"]
@@ -96,7 +96,7 @@ texture = ExtResource("2_w0isi")
 [node name="waveBack" type="Parallax2D" parent="."]
 scroll_offset = Vector2(1, -1)
 repeat_size = Vector2(1240, 0)
-autoscroll = Vector2(12, 0)
+autoscroll = Vector2(32, 0)
 repeat_times = 2
 
 [node name="WaveBack" type="Sprite2D" parent="waveBack"]
@@ -108,7 +108,7 @@ texture = ExtResource("6_81lgp")
 
 [node name="waveFront" type="Parallax2D" parent="."]
 repeat_size = Vector2(1240, 0)
-autoscroll = Vector2(32, 0)
+autoscroll = Vector2(64, 0)
 repeat_times = 2
 
 [node name="WaveFront" type="Sprite2D" parent="waveFront"]

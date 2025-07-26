@@ -1,10 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://t52keyqcvf2n"]
+[gd_scene load_steps=9 format=3 uid="uid://t52keyqcvf2n"]
 
 [ext_resource type="Script" uid="uid://ddhf1t6f288r3" path="res://canonGame/canon/canon.gd" id="1_6b8qj"]
 [ext_resource type="Texture2D" uid="uid://cjp7hk386746m" path="res://textures/cannon/cannon.png" id="2_r4el3"]
 [ext_resource type="Texture2D" uid="uid://dab0lvw617j4a" path="res://textures/cannon/cannon_wheel.png" id="3_r4el3"]
 [ext_resource type="Texture2D" uid="uid://cp6hswjsd5bsg" path="res://textures/cannon/cannon_base.png" id="4_5kyjt"]
 [ext_resource type="Texture2D" uid="uid://pmdi7vsru3x1" path="res://textures/cannon/dock.png" id="5_fymf5"]
+
+[sub_resource type="Animation" id="Animation_r4el3"]
+resource_name = "shot"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mouth:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.466667, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4.5, 4.5), Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_5kyjt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mouth:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fymf5"]
+_data = {
+&"RESET": SubResource("Animation_5kyjt"),
+&"shot": SubResource("Animation_r4el3")
+}
 
 [node name="canon" type="Node2D"]
 texture_filter = 1
@@ -15,10 +51,10 @@ position = Vector2(63, -41)
 rotation = 0.785398
 scale = Vector2(4, 4)
 texture = ExtResource("2_r4el3")
-offset = Vector2(0, -26.7875)
+offset = Vector2(-0.0245452, -11.5343)
 
 [node name="tip" type="Node2D" parent="mouth"]
-position = Vector2(0, -56)
+position = Vector2(0.176776, -41.5425)
 scale = Vector2(4, 4)
 skew = -0.0512058
 
@@ -36,3 +72,8 @@ texture = ExtResource("4_5kyjt")
 position = Vector2(228, 78)
 scale = Vector2(4, 4)
 texture = ExtResource("5_fymf5")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fymf5")
+}

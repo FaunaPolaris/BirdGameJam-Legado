@@ -8,9 +8,12 @@ func	_process(delta: float) -> void:
 	Global.distance = (global_position.x - original_pos.x) / 100
 	Global.position = global_position
 	$distanceCounter.setDistance(Global.distance)
+	if linear_velocity.length() > 10:
+		$art.rotation = linear_velocity.angle() + deg_to_rad(90)
+		if $art.rotation > 90.20:
+			$art.rotation = 90.20
 
 func	_ready() -> void:
-	rotation = supposed_rotation
 	apply_impulse(Vector2(1500, 0).rotated(deg_to_rad(supposed_rotation)), original_pos - position)
 
 func	impulse(forcex, forcey):

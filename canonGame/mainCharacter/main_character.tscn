@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5xl5nd4ofm1d"]
 
 [ext_resource type="Script" uid="uid://cadcfd4beb3wt" path="res://canonGame/mainCharacter/main_character.gd" id="1_exv1e"]
-[ext_resource type="Texture2D" uid="uid://o7vchi5epwkd" path="res://icon.svg" id="2_vedcc"]
+[ext_resource type="Texture2D" uid="uid://hg25lq2ijf4e" path="res://textures/character/batuira.png" id="2_lhhoq"]
 [ext_resource type="PackedScene" uid="uid://ch4no1kmuawrs" path="res://canonGame/distanceCounter/distance_counter.tscn" id="3_lhhoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_me2vn"]
@@ -10,6 +10,7 @@
 rotation = -0.000905367
 collision_mask = 5
 gravity_scale = 0.4
+lock_rotation = true
 script = ExtResource("1_exv1e")
 
 [node name="collision" type="CollisionShape2D" parent="."]
@@ -18,7 +19,8 @@ scale = Vector2(4.58213, 4.58213)
 shape = SubResource("CircleShape2D_me2vn")
 
 [node name="art" type="Sprite2D" parent="."]
-scale = Vector2(0.619435, 0.582997)
-texture = ExtResource("2_vedcc")
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_lhhoq")
 
 [node name="distanceCounter" parent="." instance=ExtResource("3_lhhoq")]

@@ -8,7 +8,6 @@ var	canon_speed		: int = 50
 var	has_shot		: bool = false
 
 func _process(delta : float):
-	pass
 	if Input.is_action_pressed("ui_up") and $mouth.global_rotation_degrees > min_angle:
 		$mouth.global_rotation_degrees -= canon_speed * delta
 		$CannonWheel.global_rotation_degrees += canon_speed * delta
@@ -17,6 +16,7 @@ func _process(delta : float):
 		$CannonWheel.global_rotation_degrees -= canon_speed * delta
 	if Input.is_action_just_pressed("ui_accept") and !has_shot:
 		var new_main = main_character.instantiate()
+		$animation.play("shot")
 		has_shot = true
 		new_main.position = $mouth/tip.global_position
 		new_main.original_pos = new_main.position
