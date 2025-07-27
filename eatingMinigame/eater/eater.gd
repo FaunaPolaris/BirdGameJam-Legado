@@ -3,7 +3,7 @@ extends CharacterBody2D
 var has_peck	: bool = true
 var	speed		: Vector2 = Vector2(20000, 0)
 
-var trans = preload("res://shared/transition.tscn")
+var trans = preload("res://canonGame/level/level.tscn")
 
 func	_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_left"):
