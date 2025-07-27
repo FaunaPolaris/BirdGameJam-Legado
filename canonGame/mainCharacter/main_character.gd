@@ -14,7 +14,7 @@ func	_process(delta: float) -> void:
 			$art.rotation = 90.20
 
 func	_ready() -> void:
-	apply_impulse(Vector2(1500, 0).rotated(deg_to_rad(supposed_rotation)), original_pos - position)
+	apply_impulse(Vector2(Global.current_fat, 0).rotated(deg_to_rad(supposed_rotation)), original_pos - position)
 
 func	impulse(forcex, forcey):
 	apply_impulse(Vector2(forcex, forcey), original_pos - position)

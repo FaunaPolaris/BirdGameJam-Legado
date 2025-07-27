@@ -17,7 +17,7 @@ func _on_impulse_spawn_timeout() -> void:
 	spawnThirdLayer()
 
 func	spawnTurtle():
-	var	random_pos = Vector2(randi_range(960, 9000), 48)
+	var	random_pos = Vector2(randi_range(960, 12000), 52)
 	var new_impulse = impulse.instantiate()
 	new_impulse.position.x = random_pos.x + Global.position.x
 	new_impulse.position.y = random_pos.y
@@ -25,7 +25,7 @@ func	spawnTurtle():
 	add_child(new_impulse)
 
 func	spawnFirstLayer():
-	var	random_pos = Vector2(randi_range(960, 9000), randi_range(740, first_layer))
+	var	random_pos = Vector2(randi_range(960, 12000), randi_range(740, first_layer))
 	var new_impulse = impulse.instantiate()
 	new_impulse.position.x = random_pos.x + Global.position.x
 	new_impulse.position.y = random_pos.y
@@ -33,7 +33,7 @@ func	spawnFirstLayer():
 	add_child(new_impulse)
 	
 func	spawnSecondLayer():
-	var	random_pos = Vector2(randi_range(960, 9000), randi_range(first_layer, second_layer))
+	var	random_pos = Vector2(randi_range(960, 12000), randi_range(first_layer, second_layer))
 	var new_impulse = impulse.instantiate()
 	new_impulse.position.x = random_pos.x + Global.position.x
 	new_impulse.position.y = random_pos.y
@@ -41,9 +41,9 @@ func	spawnSecondLayer():
 	add_child(new_impulse)
 
 func	spawnThirdLayer():
-	var	random_pos = Vector2(randi_range(960, 9000), randi_range(second_layer, third_layer))
+	var	random_pos = Vector2(randi_range(960, 12000), randi_range(second_layer, third_layer))
 	var new_impulse = impulse.instantiate()
 	new_impulse.position.x = random_pos.x + Global.position.x
 	new_impulse.position.y = random_pos.y
-	new_impulse.setImpulse(Impulse.types.STAR)
+	new_impulse.setImpulse(randi_range(1,2))
 	add_child(new_impulse)

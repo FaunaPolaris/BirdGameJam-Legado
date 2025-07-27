@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://j0ll3p56344r"]
+[gd_scene load_steps=20 format=3 uid="uid://j0ll3p56344r"]
 
 [ext_resource type="PackedScene" uid="uid://t52keyqcvf2n" path="res://canonGame/canon/canon.tscn" id="1_1njy3"]
 [ext_resource type="Script" uid="uid://difvtsf6srejg" path="res://canonGame/level/level.gd" id="1_3jpai"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cbcrx2mg0kiuh" path="res://textures/background/bg_up_2.png" id="9_w0isi"]
 [ext_resource type="Texture2D" uid="uid://tmoebky4wvsx" path="res://textures/background/clouds/cloud_front_1.png" id="10_e8frv"]
 [ext_resource type="Texture2D" uid="uid://dtqy85rampyw0" path="res://textures/background/clouds/cloud_front_2.png" id="11_w1o5i"]
+[ext_resource type="AudioStream" uid="uid://ctqvm3jcq8cr4" path="res://sound/Musica_Canhão_loop.wav" id="15_oki1q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nel4u"]
 size = Vector2(1920, 100)
@@ -246,6 +247,10 @@ autostart = true
 libraries = {
 &"": SubResource("AnimationLibrary_i5y32")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_oki1q")
+autoplay = true
 
 [connection signal="body_entered" from="floor" to="." method="_on_floor_body_entered"]
 [connection signal="timeout" from="impulse_spawn" to="." method="_on_impulse_spawn_timeout"]

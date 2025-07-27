@@ -34,6 +34,7 @@ func _process(delta : float):
 		new_main.controlCamera()
 		$"../floor".followBullet(new_main)
 		$"../ceiling".followBullet(new_main)
+		$shotAudio.play()
 	elif Input.is_action_just_pressed("ui_accept") and Global.extra_jump:
 		main.impulse(500, -1200)
 		Global.extra_jump -= 1

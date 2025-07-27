@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://do7qvalquw7j3"]
+[gd_scene load_steps=15 format=3 uid="uid://do7qvalquw7j3"]
 
 [ext_resource type="Script" uid="uid://m2h8k75qga0p" path="res://title_screen.gd" id="1_pl3da"]
 [ext_resource type="Texture2D" uid="uid://bipwp5b0nulv4" path="res://textures/background/bg_right.png" id="2_7tu6d"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cm7xjenu7ptck" path="res://textures/ui/menu/G.png" id="10_oia1i"]
 [ext_resource type="Texture2D" uid="uid://cduo73ajqhii3" path="res://textures/ui/menu/R.png" id="11_nmotf"]
 [ext_resource type="Texture2D" uid="uid://bngrtfprwf06u" path="res://textures/ui/menu/O.png" id="12_m80ih"]
+[ext_resource type="AudioStream" uid="uid://le7faar5cyqd" path="res://sound/Musica_Menu.wav" id="13_e728s"]
+[ext_resource type="AudioStream" uid="uid://wlme0w6hut8n" path="res://sound/botao_fx.wav" id="14_kg3b4"]
 
 [node name="titleScreen" type="Control"]
 layout_mode = 3
@@ -136,5 +138,12 @@ texture = ExtResource("11_nmotf")
 [node name="O" type="Sprite2D" parent="Title"]
 position = Vector2(166, 110)
 texture = ExtResource("12_m80ih")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_e728s")
+autoplay = true
+
+[node name="button_press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_kg3b4")
 
 [connection signal="pressed" from="startGame" to="." method="_on_start_game_pressed"]

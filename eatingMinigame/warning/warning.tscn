@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://by4jug5j7be8t"]
+[gd_scene load_steps=4 format=3 uid="uid://by4jug5j7be8t"]
 
 [ext_resource type="Texture2D" uid="uid://ckictgkbmm3ac" path="res://textures/peck/worm_alert.png" id="1_6xana"]
 [ext_resource type="Script" uid="uid://d1c5mcvdndejy" path="res://eatingMinigame/warning/warning.gd" id="2_6xana"]
+[ext_resource type="AudioStream" uid="uid://dolasx66vsery" path="res://sound/alerta_fx.wav" id="3_7fg6i"]
 
 [node name="warning" type="Sprite2D"]
 texture_filter = 1
@@ -12,5 +13,8 @@ script = ExtResource("2_6xana")
 [node name="lifespan" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7fg6i")
 
 [connection signal="timeout" from="lifespan" to="." method="_on_lifespan_timeout"]

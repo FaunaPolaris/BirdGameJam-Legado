@@ -23,7 +23,7 @@ func	setImpulse(type : types):
 		impulsey = 200
 		$art.play("gaivotao")
 	elif type == types.STAR:
-		impulsex = 2000
+		impulsex = 1500
 		impulsey = 200
 		$art.play("star")
 	elif type == types.TURTLE:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cn2q8m7x6j3va"]
+[gd_scene load_steps=15 format=3 uid="uid://cn2q8m7x6j3va"]
 
 [ext_resource type="Texture2D" uid="uid://cdllyempq0ltt" path="res://textures/peck/SandFloor.png" id="1_6lylw"]
+[ext_resource type="AudioStream" uid="uid://bcaoy00h3y6hc" path="res://sound/Musica_Coleta.wav" id="1_h0ite"]
 [ext_resource type="Texture2D" uid="uid://bipwp5b0nulv4" path="res://textures/background/bg_right.png" id="1_psrre"]
 [ext_resource type="PackedScene" uid="uid://csusdyfgyv2nr" path="res://eatingMinigame/eater/eater.tscn" id="2_1s0lt"]
 [ext_resource type="PackedScene" uid="uid://cktpbi461648m" path="res://eatingMinigame/foodDispenser/food_dispenser.tscn" id="3_lcefo"]
@@ -95,6 +96,10 @@ _data = {
 }
 
 [node name="scenario" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_h0ite")
+autoplay = true
 
 [node name="BgRight" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -196,6 +201,7 @@ libraries = {
 
 [node name="clock" parent="." instance=ExtResource("4_kt38x")]
 position = Vector2(-82, -363)
+seconds = 20
 
 [connection signal="animation_finished" from="AnimationPlayer" to="eater" method="_on_animation_player_animation_finished"]
 [connection signal="timesUp" from="clock" to="eater" method="_on_clock_times_up"]
