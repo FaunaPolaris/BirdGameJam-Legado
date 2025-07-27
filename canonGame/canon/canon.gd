@@ -13,6 +13,7 @@ var can_move_sound	: bool = true
 func	_ready():
 	Global.extra_jump = 0
 	$"../AnimationPlayer".play("transition")
+	$"../transitionControl".TransitionIn()
 
 func _process(delta : float):
 	if Input.is_action_pressed("ui_up") and $mouth.global_rotation_degrees > min_angle:

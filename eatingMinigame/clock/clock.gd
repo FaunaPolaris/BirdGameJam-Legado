@@ -12,4 +12,5 @@ func _on_timer_timeout() -> void:
 		seconds = 60
 	if minutes < 0:
 		timesUp.emit()
+		$Timer.stop()
 	$number.text = str("0", minutes, ":", seconds)

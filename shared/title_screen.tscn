@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://do7qvalquw7j3"]
+[gd_scene load_steps=17 format=3 uid="uid://do7qvalquw7j3"]
 
-[ext_resource type="Script" uid="uid://m2h8k75qga0p" path="res://title_screen.gd" id="1_pl3da"]
+[ext_resource type="Script" uid="uid://m2h8k75qga0p" path="res://shared/title_screen.gd" id="1_pl3da"]
 [ext_resource type="Texture2D" uid="uid://bipwp5b0nulv4" path="res://textures/background/bg_right.png" id="2_7tu6d"]
 [ext_resource type="Texture2D" uid="uid://tmoebky4wvsx" path="res://textures/background/clouds/cloud_front_1.png" id="3_e728s"]
 [ext_resource type="Texture2D" uid="uid://dtqy85rampyw0" path="res://textures/background/clouds/cloud_front_2.png" id="4_kg3b4"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bngrtfprwf06u" path="res://textures/ui/menu/O.png" id="12_m80ih"]
 [ext_resource type="AudioStream" uid="uid://le7faar5cyqd" path="res://sound/Musica_Menu.wav" id="13_e728s"]
 [ext_resource type="AudioStream" uid="uid://wlme0w6hut8n" path="res://sound/botao_fx.wav" id="14_kg3b4"]
+[ext_resource type="Texture2D" uid="uid://gexb78ardsos" path="res://textures/background/Vines.png" id="15_mbslf"]
+[ext_resource type="PackedScene" uid="uid://nyda18r64o8j" path="res://shared/transition_control.tscn" id="16_jr3om"]
 
 [node name="titleScreen" type="Control"]
 layout_mode = 3
@@ -145,5 +147,17 @@ autoplay = true
 
 [node name="button_press" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_kg3b4")
+
+[node name="Vines" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 640)
+scale = Vector2(4, 4)
+texture = ExtResource("15_mbslf")
+
+[node name="transitionControl" parent="." instance=ExtResource("16_jr3om")]
+offset_left = 648.0
+offset_top = 352.0
+offset_right = 688.0
+offset_bottom = 392.0
 
 [connection signal="pressed" from="startGame" to="." method="_on_start_game_pressed"]
