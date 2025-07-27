@@ -102,6 +102,12 @@ position = Vector2(1743, 98)
 scale = Vector2(4, 4)
 texture = ExtResource("6_jr3om")
 
+[node name="Vines" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 640)
+scale = Vector2(4, 4)
+texture = ExtResource("15_mbslf")
+
 [node name="waveFront" type="Parallax2D" parent="."]
 texture_filter = 1
 scroll_offset = Vector2(-1124, 587)
@@ -159,12 +165,6 @@ autoplay = true
 
 [node name="button_press" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_kg3b4")
-
-[node name="Vines" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(640, 640)
-scale = Vector2(4, 4)
-texture = ExtResource("15_mbslf")
 
 [node name="transitionControl" parent="." instance=ExtResource("16_jr3om")]
 offset_left = 648.0

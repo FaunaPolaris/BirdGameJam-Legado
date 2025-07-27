@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://j0ll3p56344r"]
+[gd_scene load_steps=26 format=3 uid="uid://j0ll3p56344r"]
 
 [ext_resource type="PackedScene" uid="uid://t52keyqcvf2n" path="res://canonGame/canon/canon.tscn" id="1_1njy3"]
 [ext_resource type="Script" uid="uid://difvtsf6srejg" path="res://canonGame/level/level.gd" id="1_3jpai"]
@@ -17,6 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://ctqvm3jcq8cr4" path="res://sound/Musica_Canhão_loop.wav" id="15_oki1q"]
 [ext_resource type="AudioStream" uid="uid://bvrsgytrjim6g" path="res://sound/splashmorte_fx.wav" id="16_i5y32"]
 [ext_resource type="PackedScene" uid="uid://nyda18r64o8j" path="res://shared/transition_control.tscn" id="17_gqgjk"]
+[ext_resource type="Texture2D" uid="uid://d1ug0qdjbcpuj" path="res://textures/ui/arrows_upDown.png" id="18_7mcfo"]
+[ext_resource type="Texture2D" uid="uid://jt78l7y8qkxy" path="res://textures/ui/angle.png" id="19_7mcfo"]
+[ext_resource type="Texture2D" uid="uid://mnilubpjctg" path="res://textures/ui/spacebar.png" id="20_ismd7"]
+[ext_resource type="Texture2D" uid="uid://cs8pjl3oh8kui" path="res://textures/ui/shoot.png" id="21_2fb44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nel4u"]
 size = Vector2(1920, 100)
@@ -263,6 +267,33 @@ offset_left = 649.0
 offset_top = -243.0
 offset_right = 689.0
 offset_bottom = -203.0
+
+[node name="controls" type="Node2D" parent="."]
+position = Vector2(640, -248)
+
+[node name="ArrowsLeftRight" type="Sprite2D" parent="controls"]
+texture_filter = 1
+position = Vector2(-228, 312)
+scale = Vector2(4, 4)
+texture = ExtResource("18_7mcfo")
+
+[node name="Walk" type="Sprite2D" parent="controls"]
+texture_filter = 1
+position = Vector2(-66, 320)
+scale = Vector2(4, 4)
+texture = ExtResource("19_7mcfo")
+
+[node name="Spacebar" type="Sprite2D" parent="controls"]
+texture_filter = 1
+position = Vector2(144, 312)
+scale = Vector2(4, 4)
+texture = ExtResource("20_ismd7")
+
+[node name="Peck" type="Sprite2D" parent="controls"]
+texture_filter = 1
+position = Vector2(328, 320)
+scale = Vector2(4, 4)
+texture = ExtResource("21_2fb44")
 
 [connection signal="body_entered" from="floor" to="." method="_on_floor_body_entered"]
 [connection signal="timeout" from="impulse_spawn" to="." method="_on_impulse_spawn_timeout"]

@@ -52,6 +52,7 @@ func _process(delta : float):
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	has_shot = false
+	$"../waveFront".top_level = true
 	Global.extra_jump = 1
 
 
