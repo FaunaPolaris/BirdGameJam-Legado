@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://j0ll3p56344r"]
+[gd_scene load_steps=36 format=3 uid="uid://j0ll3p56344r"]
 
 [ext_resource type="PackedScene" uid="uid://t52keyqcvf2n" path="res://canonGame/canon/canon.tscn" id="1_1njy3"]
 [ext_resource type="Script" uid="uid://difvtsf6srejg" path="res://canonGame/level/level.gd" id="1_3jpai"]
@@ -97,6 +97,94 @@ _data = {
 &"RESET": SubResource("Animation_oki1q"),
 &"transition": SubResource("Animation_81lgp")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ismd7"]
+atlas = ExtResource("20_ismd7")
+region = Rect2(49, 0, 49, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44ank"]
+atlas = ExtResource("20_ismd7")
+region = Rect2(0, 0, 49, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyuyy"]
+atlas = ExtResource("20_ismd7")
+region = Rect2(0, 0, 49, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44ank"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ismd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44ank")
+}],
+"loop": false,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyuyy")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mcfo"]
+atlas = ExtResource("18_7mcfo")
+region = Rect2(0, 0, 19, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pokqh"]
+atlas = ExtResource("18_7mcfo")
+region = Rect2(38, 0, 19, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ismd7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mcfo")
+}],
+"loop": false,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pokqh")
+}],
+"loop": false,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fb44"]
+atlas = ExtResource("18_7mcfo")
+region = Rect2(57, 0, 19, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy85q"]
+atlas = ExtResource("18_7mcfo")
+region = Rect2(19, 0, 19, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyuyy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fb44")
+}],
+"loop": false,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy85q")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
 
 [node name="Level" type="Node2D"]
 texture_filter = 1
@@ -269,13 +357,8 @@ offset_right = 689.0
 offset_bottom = -203.0
 
 [node name="controls" type="Node2D" parent="."]
+visible = false
 position = Vector2(640, -248)
-
-[node name="ArrowsLeftRight" type="Sprite2D" parent="controls"]
-texture_filter = 1
-position = Vector2(-228, 312)
-scale = Vector2(4, 4)
-texture = ExtResource("18_7mcfo")
 
 [node name="Walk" type="Sprite2D" parent="controls"]
 texture_filter = 1
@@ -283,17 +366,36 @@ position = Vector2(-66, 320)
 scale = Vector2(4, 4)
 texture = ExtResource("19_7mcfo")
 
-[node name="Spacebar" type="Sprite2D" parent="controls"]
+[node name="Spacebar" type="AnimatedSprite2D" parent="controls"]
 texture_filter = 1
 position = Vector2(144, 312)
 scale = Vector2(4, 4)
-texture = ExtResource("20_ismd7")
+sprite_frames = SubResource("SpriteFrames_44ank")
+animation = &"down"
+autoplay = "up"
+frame = 1
+frame_progress = 1.0
 
 [node name="Peck" type="Sprite2D" parent="controls"]
 texture_filter = 1
 position = Vector2(328, 320)
 scale = Vector2(4, 4)
 texture = ExtResource("21_2fb44")
+
+[node name="up" type="AnimatedSprite2D" parent="controls"]
+position = Vector2(-248, 312)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ismd7")
+animation = &"down"
+autoplay = "up"
+frame_progress = 1.0
+
+[node name="down" type="AnimatedSprite2D" parent="controls"]
+position = Vector2(-184, 312)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_iyuyy")
+animation = &"down"
+autoplay = "up"
 
 [connection signal="body_entered" from="floor" to="." method="_on_floor_body_entered"]
 [connection signal="timeout" from="impulse_spawn" to="." method="_on_impulse_spawn_timeout"]

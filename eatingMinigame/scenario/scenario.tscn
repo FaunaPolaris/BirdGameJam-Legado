@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cn2q8m7x6j3va"]
+[gd_scene load_steps=26 format=3 uid="uid://cn2q8m7x6j3va"]
 
 [ext_resource type="Texture2D" uid="uid://cdllyempq0ltt" path="res://textures/peck/SandFloor.png" id="1_6lylw"]
 [ext_resource type="AudioStream" uid="uid://bcaoy00h3y6hc" path="res://sound/Musica_Coleta.wav" id="1_h0ite"]
@@ -16,6 +16,87 @@
 [ext_resource type="Texture2D" uid="uid://bwxs6uclors4q" path="res://textures/ui/walk.png" id="14_j7sqa"]
 [ext_resource type="Texture2D" uid="uid://mnilubpjctg" path="res://textures/ui/spacebar.png" id="15_i8s00"]
 [ext_resource type="Texture2D" uid="uid://cuhmns1ll1clg" path="res://textures/ui/peck.png" id="16_6jyq1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ismd7"]
+atlas = ExtResource("15_i8s00")
+region = Rect2(49, 0, 49, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyuyy"]
+atlas = ExtResource("15_i8s00")
+region = Rect2(0, 0, 49, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7sqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ismd7")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyuyy")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8s00"]
+atlas = ExtResource("13_wnrki")
+region = Rect2(0, 0, 19, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jyq1"]
+atlas = ExtResource("13_wnrki")
+region = Rect2(38, 0, 19, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x7fu8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8s00")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jyq1")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4ans"]
+atlas = ExtResource("13_wnrki")
+region = Rect2(57, 0, 19, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26l2q"]
+atlas = ExtResource("13_wnrki")
+region = Rect2(19, 0, 19, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uohn5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4ans")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26l2q")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
 
 [node name="scenario" type="Node2D"]
 
@@ -122,12 +203,7 @@ seconds = 40
 [node name="transitionControl" parent="." instance=ExtResource("12_mk8i6")]
 
 [node name="controls" type="Node2D" parent="."]
-
-[node name="ArrowsLeftRight" type="Sprite2D" parent="controls"]
 texture_filter = 1
-position = Vector2(-228, 308)
-scale = Vector2(4, 4)
-texture = ExtResource("13_wnrki")
 
 [node name="Walk" type="Sprite2D" parent="controls"]
 texture_filter = 1
@@ -135,16 +211,32 @@ position = Vector2(-76, 308)
 scale = Vector2(4, 4)
 texture = ExtResource("14_j7sqa")
 
-[node name="Spacebar" type="Sprite2D" parent="controls"]
-texture_filter = 1
-position = Vector2(108, 308)
-scale = Vector2(4, 4)
-texture = ExtResource("15_i8s00")
-
 [node name="Peck" type="Sprite2D" parent="controls"]
 texture_filter = 1
 position = Vector2(284, 308)
 scale = Vector2(4, 4)
 texture = ExtResource("16_6jyq1")
+
+[node name="Spacebar" type="AnimatedSprite2D" parent="controls"]
+texture_filter = 1
+position = Vector2(112, 304)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_j7sqa")
+animation = &"up"
+autoplay = "up"
+
+[node name="left" type="AnimatedSprite2D" parent="controls"]
+position = Vector2(-248, 304)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_x7fu8")
+animation = &"up"
+autoplay = "up"
+
+[node name="right" type="AnimatedSprite2D" parent="controls"]
+position = Vector2(-184, 304)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_uohn5")
+animation = &"up"
+autoplay = "up"
 
 [connection signal="timesUp" from="clock" to="eater" method="_on_clock_times_up"]

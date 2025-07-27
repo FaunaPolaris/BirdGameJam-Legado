@@ -122,11 +122,12 @@ texture = ExtResource("7_fmxxa")
 
 [node name="startGame" type="Button" parent="."]
 texture_filter = 1
+custom_minimum_size = Vector2(82, 16)
 layout_mode = 2
-offset_left = 523.0
-offset_top = 483.0
-offset_right = 571.0
-offset_bottom = 495.0
+offset_left = 456.0
+offset_top = 432.0
+offset_right = 538.0
+offset_bottom = 448.0
 scale = Vector2(4, 4)
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u3etj")

@@ -16,20 +16,27 @@ func	_ready():
 	$"../transitionControl".TransitionIn()
 
 func _process(delta : float):
-	if Input.is_action_pressed("ui_up") and $mouth.global_rotation_degrees > min_angle:
+	if Input.is_action_pressed("ui_up") and $mouth.global_rotation_degrees > min_angle and !has_shot:
 		$mouth.global_rotation_degrees -= canon_speed * delta
 		$CannonWheel.global_rotation_degrees += canon_speed * delta
 		if can_move_sound:
 			$moveSound.play()
 			can_move_sound = false
 			$moveSoundTimer.start()
-	elif Input.is_action_pressed("ui_down") and $mouth.global_rotation_degrees < max_angle:
+		$"../controls/up".play("down")
+		$"../controls/down".play("up")
+	elif Input.is_action_pressed("ui_down") and $mouth.global_rotation_degrees < max_angle and !has_shot:
 		$mouth.global_rotation_degrees += canon_speed * delta
 		$CannonWheel.global_rotation_degrees -= canon_speed * delta
 		if can_move_sound:
 			$moveSound.play()
 			can_move_sound = false
 			$moveSoundTimer.start()
+		$"../controls/down".play("down")
+		$"../controls/up".play("up")
+	else:
+		$"../controls/down".play("up")
+		$"../controls/up".play("up")
 	if Input.is_action_just_pressed("ui_accept") and !has_shot:
 		var new_main = main_character.instantiate()
 		var tween:Tween = self.create_tween();
@@ -45,6 +52,7 @@ func _process(delta : float):
 		$"../floor".followBullet(new_main)
 		$"../ceiling".followBullet(new_main)
 		$shotAudio.play()
+		$"../controls/Spacebar".play("down")
 	elif Input.is_action_just_pressed("ui_accept") and Global.extra_jump:
 		main.impulse(500, -1200)
 		$extraJumpAudio.play()
@@ -52,7 +60,7 @@ func _process(delta : float):
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	has_shot = false
-	$"../waveFront".top_level = true
+	$"../controls".show()
 	Global.extra_jump = 1
 
 
