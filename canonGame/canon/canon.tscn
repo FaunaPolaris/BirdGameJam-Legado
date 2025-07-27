@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://t52keyqcvf2n"]
+[gd_scene load_steps=12 format=3 uid="uid://t52keyqcvf2n"]
 
 [ext_resource type="Script" uid="uid://ddhf1t6f288r3" path="res://canonGame/canon/canon.gd" id="1_6b8qj"]
 [ext_resource type="Texture2D" uid="uid://cjp7hk386746m" path="res://textures/cannon/cannon.png" id="2_r4el3"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cp6hswjsd5bsg" path="res://textures/cannon/cannon_base.png" id="4_5kyjt"]
 [ext_resource type="Texture2D" uid="uid://pmdi7vsru3x1" path="res://textures/cannon/dock.png" id="5_fymf5"]
 [ext_resource type="AudioStream" uid="uid://coo74j8j4ualt" path="res://sound/canhao_fx.wav" id="6_5kyjt"]
+[ext_resource type="AudioStream" uid="uid://bx5sqa6njv1hn" path="res://sound/pulo_fx.wav" id="7_fymf5"]
+[ext_resource type="AudioStream" uid="uid://bjd3jchathdn7" path="res://sound/movimentocanhao_fx.wav" id="8_qlhju"]
 
 [sub_resource type="Animation" id="Animation_5kyjt"]
 length = 0.001
@@ -81,3 +83,15 @@ libraries = {
 
 [node name="shotAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_5kyjt")
+
+[node name="extraJumpAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_fymf5")
+
+[node name="moveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_qlhju")
+
+[node name="moveSoundTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="moveSoundTimer" to="." method="_on_move_sound_timer_timeout"]

@@ -34,6 +34,10 @@ func	setImpulse(type : types):
 func	_process(delta: float) -> void:
 	if has_overlapping_bodies() and !has_impulsed:
 		has_impulsed = true
+		if impulsex == 1500:
+			$starSound.play()
+		else:
+			$hitSound.play()
 		for body in get_overlapping_bodies():
 			body.impulse(impulsex, impulsey)
 	position.x += -200 * delta

@@ -8,6 +8,9 @@ var second_layer	: int = -1200
 var third_layer		: int = -1700
 
 func _on_floor_body_entered(body: Node2D) -> void:
+	$splashSound.play()
+
+func _on_splash_sound_finished() -> void:
 	get_tree().change_scene_to_packed(end_screen)
 
 func _on_impulse_spawn_timeout() -> void:

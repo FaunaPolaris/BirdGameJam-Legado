@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://pia88a6c3b1i"]
+[gd_scene load_steps=10 format=3 uid="uid://pia88a6c3b1i"]
 
 [ext_resource type="Script" uid="uid://cl0s8qvr33xad" path="res://canonGame/impulse/impulse.gd" id="1_5dins"]
 [ext_resource type="Texture2D" uid="uid://cy5q1fdb3bur4" path="res://textures/character/fragata.png" id="2_43vbi"]
 [ext_resource type="Texture2D" uid="uid://txwtrx7cvjo2" path="res://textures/character/gaivotao.png" id="3_ywxjc"]
 [ext_resource type="Texture2D" uid="uid://nf776h2hvmdt" path="res://textures/character/star.png" id="4_uos44"]
 [ext_resource type="Texture2D" uid="uid://cgekxhayh40df" path="res://textures/character/turtle.png" id="5_ccpar"]
+[ext_resource type="AudioStream" uid="uid://bgt6pn4v7ttm5" path="res://sound/hit_fx.wav" id="6_uos44"]
+[ext_resource type="AudioStream" uid="uid://d2tcvb0pgkubl" path="res://sound/estrela_fx.wav" id="7_ccpar"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s05yd"]
 radius = 72.0
@@ -60,5 +62,11 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yc1sd")
 animation = &"star"
+
+[node name="hitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_uos44")
+
+[node name="starSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ccpar")
 
 [connection signal="timeout" from="lifespan" to="." method="_on_lifespan_timeout"]

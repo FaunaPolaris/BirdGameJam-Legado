@@ -8,6 +8,7 @@ var	max_angle		: int = 90
 var	min_angle		: int = 0
 var	canon_speed		: int = 50
 var	has_shot		: bool = true
+var can_move_sound	: bool = true
 
 func	_ready():
 	Global.extra_jump = 0
@@ -17,9 +18,17 @@ func _process(delta : float):
 	if Input.is_action_pressed("ui_up") and $mouth.global_rotation_degrees > min_angle:
 		$mouth.global_rotation_degrees -= canon_speed * delta
 		$CannonWheel.global_rotation_degrees += canon_speed * delta
+		if can_move_sound:
+			$moveSound.play()
+			can_move_sound = false
+			$moveSoundTimer.start()
 	elif Input.is_action_pressed("ui_down") and $mouth.global_rotation_degrees < max_angle:
 		$mouth.global_rotation_degrees += canon_speed * delta
 		$CannonWheel.global_rotation_degrees -= canon_speed * delta
+		if can_move_sound:
+			$moveSound.play()
+			can_move_sound = false
+			$moveSoundTimer.start()
 	if Input.is_action_just_pressed("ui_accept") and !has_shot:
 		var new_main = main_character.instantiate()
 		var tween:Tween = self.create_tween();
@@ -37,8 +46,13 @@ func _process(delta : float):
 		$shotAudio.play()
 	elif Input.is_action_just_pressed("ui_accept") and Global.extra_jump:
 		main.impulse(500, -1200)
+		$extraJumpAudio.play()
 		Global.extra_jump -= 1
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	has_shot = false
 	Global.extra_jump = 1
+
+
+func _on_move_sound_timer_timeout() -> void:
+	can_move_sound = true
