@@ -8,9 +8,12 @@ var second_layer	: int = -1200
 var third_layer		: int = -1700
 
 func _on_floor_body_entered(body: Node2D) -> void:
+	$transitionControl.TransitionOut()
+	$transitionControl/transition.start()
+	$transitionControl/transition.timeout.connect(Callable(self, "_on_death"))
 	$splashSound.play()
 
-func _on_splash_sound_finished() -> void:
+func _on_death() -> void:
 	get_tree().change_scene_to_packed(end_screen)
 
 func _on_impulse_spawn_timeout() -> void:

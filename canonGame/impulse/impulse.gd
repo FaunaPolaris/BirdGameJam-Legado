@@ -19,8 +19,8 @@ func	setImpulse(type : types):
 		impulsey = 200
 		$art.play("fragata")
 	if type == types.BIRD2:
-		impulsex = -300
-		impulsey = 200
+		impulsex = 300
+		impulsey = -400
 		$art.play("gaivotao")
 	elif type == types.STAR:
 		impulsex = 1500
