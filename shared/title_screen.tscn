@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://do7qvalquw7j3"]
+[gd_scene load_steps=21 format=3 uid="uid://do7qvalquw7j3"]
 
 [ext_resource type="Script" uid="uid://m2h8k75qga0p" path="res://shared/title_screen.gd" id="1_pl3da"]
 [ext_resource type="Texture2D" uid="uid://bipwp5b0nulv4" path="res://textures/background/bg_right.png" id="2_7tu6d"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ddls23kveavui" path="res://textures/background/clouds/cloud_front_3.png" id="5_mbslf"]
 [ext_resource type="Texture2D" uid="uid://tj0r05cxtju6" path="res://textures/waves/wave_back.png" id="6_jr3om"]
 [ext_resource type="Texture2D" uid="uid://b0xujctcu0yji" path="res://textures/waves/wave_front.png" id="7_fmxxa"]
+[ext_resource type="StyleBox" uid="uid://cvy4dtkn2oid3" path="res://shared/title_screen.tres" id="8_oia1i"]
 [ext_resource type="Texture2D" uid="uid://bgf74v6se38ky" path="res://textures/ui/menu/M.png" id="8_u3etj"]
+[ext_resource type="Texture2D" uid="uid://c0lr5gimjuta2" path="res://textures/ui/menu/start_off.png" id="8_y2fom"]
 [ext_resource type="Texture2D" uid="uid://c8k3qetplwem7" path="res://textures/ui/menu/I.png" id="9_y2fom"]
 [ext_resource type="Texture2D" uid="uid://cm7xjenu7ptck" path="res://textures/ui/menu/G.png" id="10_oia1i"]
 [ext_resource type="Texture2D" uid="uid://cduo73ajqhii3" path="res://textures/ui/menu/R.png" id="11_nmotf"]
@@ -16,6 +18,11 @@
 [ext_resource type="AudioStream" uid="uid://wlme0w6hut8n" path="res://sound/botao_fx.wav" id="14_kg3b4"]
 [ext_resource type="Texture2D" uid="uid://gexb78ardsos" path="res://textures/background/Vines.png" id="15_mbslf"]
 [ext_resource type="PackedScene" uid="uid://nyda18r64o8j" path="res://shared/transition_control.tscn" id="16_jr3om"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3etj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nmotf"]
+texture = ExtResource("8_y2fom")
 
 [node name="titleScreen" type="Control"]
 layout_mode = 3
@@ -108,13 +115,18 @@ scale = Vector2(4, 4)
 texture = ExtResource("7_fmxxa")
 
 [node name="startGame" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 2
 offset_left = 523.0
 offset_top = 483.0
-offset_right = 790.0
-offset_bottom = 558.0
+offset_right = 571.0
+offset_bottom = 495.0
+scale = Vector2(4, 4)
 theme_override_font_sizes/font_size = 48
-text = "start Game"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3etj")
+theme_override_styles/hover = ExtResource("8_oia1i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nmotf")
+theme_override_styles/normal = ExtResource("8_oia1i")
 
 [node name="Title" type="Node2D" parent="."]
 texture_filter = 1
