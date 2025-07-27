@@ -7,30 +7,36 @@ var	has_impulsed		: bool = false
 @export var impulsey	: int = -600
 
 enum types {
-	BIRD,
-	WIND,
+	BIRD1,
+	BIRD2,
 	STAR,
+	TURTLE,
 }
 
 func	setImpulse(type : types):
-	if type == types.BIRD:
+	if type == types.BIRD1:
 		impulsex = -60
 		impulsey = 200
-		$art.modulate = Color(0.475, 0.26, 0.65)
+		$art.play("fragata")
+	if type == types.BIRD2:
+		impulsex = -300
+		impulsey = 200
+		$art.play("gaivotao")
 	elif type == types.STAR:
 		impulsex = 2000
 		impulsey = 200
-		$art.modulate = Color(0.773, 0.773, 0)
-	elif type == types.WIND:
-		impulsex = 150
-		impulsey = -600
-		$art.modulate = Color(1, 1, 1)
+		$art.play("star")
+	elif type == types.TURTLE:
+		impulsex = 60
+		impulsey = -1400
+		$art.play("turtle")
 
 func	_process(delta: float) -> void:
 	if has_overlapping_bodies() and !has_impulsed:
 		has_impulsed = true
 		for body in get_overlapping_bodies():
 			body.impulse(impulsex, impulsey)
+	position.x += -200 * delta
 
 func _on_lifespan_timeout() -> void:
 	queue_free()

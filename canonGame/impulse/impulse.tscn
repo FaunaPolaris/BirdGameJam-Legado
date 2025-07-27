@@ -1,18 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://pia88a6c3b1i"]
+[gd_scene load_steps=8 format=3 uid="uid://pia88a6c3b1i"]
 
 [ext_resource type="Script" uid="uid://cl0s8qvr33xad" path="res://canonGame/impulse/impulse.gd" id="1_5dins"]
+[ext_resource type="Texture2D" uid="uid://cy5q1fdb3bur4" path="res://textures/character/fragata.png" id="2_43vbi"]
+[ext_resource type="Texture2D" uid="uid://txwtrx7cvjo2" path="res://textures/character/gaivotao.png" id="3_ywxjc"]
+[ext_resource type="Texture2D" uid="uid://nf776h2hvmdt" path="res://textures/character/star.png" id="4_uos44"]
+[ext_resource type="Texture2D" uid="uid://cgekxhayh40df" path="res://textures/character/turtle.png" id="5_ccpar"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s05yd"]
 radius = 72.0
 
-[sub_resource type="Gradient" id="Gradient_5dins"]
-offsets = PackedFloat32Array(0.525974, 0.623377, 0.720779)
-colors = PackedColorArray(0.952941, 0.890196, 0.890196, 0, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rj6et"]
-gradient = SubResource("Gradient_5dins")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+[sub_resource type="SpriteFrames" id="SpriteFrames_yc1sd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_43vbi")
+}],
+"loop": true,
+"name": &"fragata",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ywxjc")
+}],
+"loop": true,
+"name": &"gaivotao",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_uos44")
+}],
+"loop": true,
+"name": &"star",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ccpar")
+}],
+"loop": true,
+"name": &"turtle",
+"speed": 5.0
+}]
 
 [node name="impulse" type="Area2D"]
 script = ExtResource("1_5dins")
@@ -20,14 +50,15 @@ script = ExtResource("1_5dins")
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s05yd")
 
-[node name="art" type="Sprite2D" parent="."]
-modulate = Color(0.475392, 0.260101, 0.650148, 1)
-scale = Vector2(2.28125, 2.28125)
-texture = SubResource("GradientTexture2D_rj6et")
-
 [node name="lifespan" type="Timer" parent="."]
 wait_time = 15.0
 one_shot = true
 autostart = true
+
+[node name="art" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_yc1sd")
+animation = &"star"
 
 [connection signal="timeout" from="lifespan" to="." method="_on_lifespan_timeout"]
