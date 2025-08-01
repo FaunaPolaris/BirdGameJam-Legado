@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://pia88a6c3b1i"]
+[gd_scene load_steps=11 format=3 uid="uid://pia88a6c3b1i"]
 
 [ext_resource type="Script" uid="uid://cl0s8qvr33xad" path="res://canonGame/impulse/impulse.gd" id="1_5dins"]
 [ext_resource type="Texture2D" uid="uid://cy5q1fdb3bur4" path="res://textures/character/fragata.png" id="2_43vbi"]
 [ext_resource type="Texture2D" uid="uid://txwtrx7cvjo2" path="res://textures/character/gaivotao.png" id="3_ywxjc"]
 [ext_resource type="Texture2D" uid="uid://nf776h2hvmdt" path="res://textures/character/star.png" id="4_uos44"]
 [ext_resource type="Texture2D" uid="uid://cgekxhayh40df" path="res://textures/character/turtle.png" id="5_ccpar"]
+[ext_resource type="Texture2D" uid="uid://htkfagbo6ip3" path="res://textures/character/wind.jpeg" id="6_ccpar"]
 [ext_resource type="AudioStream" uid="uid://bgt6pn4v7ttm5" path="res://sound/hit_fx.wav" id="6_uos44"]
 [ext_resource type="AudioStream" uid="uid://d2tcvb0pgkubl" path="res://sound/estrela_fx.wav" id="7_ccpar"]
 
@@ -44,6 +45,14 @@ animations = [{
 "loop": true,
 "name": &"turtle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ccpar")
+}],
+"loop": true,
+"name": &"wind",
+"speed": 5.0
 }]
 
 [node name="impulse" type="Area2D"]
@@ -61,7 +70,7 @@ autostart = true
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_yc1sd")
-animation = &"turtle"
+animation = &"wind"
 
 [node name="hitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_uos44")

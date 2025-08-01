@@ -35,7 +35,7 @@ func	spawnFirstLayer():
 	var new_impulse = impulse.instantiate()
 	new_impulse.position.x = random_pos.x + Global.position.x
 	new_impulse.position.y = random_pos.y
-	new_impulse.setImpulse(randi_range(0, 1))
+	new_impulse.setImpulse(randi_range(0, 2))
 	add_child(new_impulse)
 	
 func	spawnSecondLayer():
@@ -43,7 +43,7 @@ func	spawnSecondLayer():
 	var new_impulse = impulse.instantiate()
 	new_impulse.position.x = random_pos.x + Global.position.x
 	new_impulse.position.y = random_pos.y
-	new_impulse.setImpulse(Impulse.types.BIRD1)
+	new_impulse.setImpulse(randi_range(1, 2))
 	add_child(new_impulse)
 
 func	spawnThirdLayer():
@@ -51,5 +51,5 @@ func	spawnThirdLayer():
 	var new_impulse = impulse.instantiate()
 	new_impulse.position.x = random_pos.x + Global.position.x
 	new_impulse.position.y = random_pos.y
-	new_impulse.setImpulse(randi_range(1,2))
+	new_impulse.setImpulse(randi_range(1,3))
 	add_child(new_impulse)

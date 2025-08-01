@@ -9,6 +9,7 @@ var	has_impulsed		: bool = false
 enum types {
 	BIRD1,
 	BIRD2,
+	WIND,
 	STAR,
 	TURTLE,
 }
@@ -22,6 +23,10 @@ func	setImpulse(type : types):
 		impulsex = 300
 		impulsey = -400
 		$art.play("gaivotao")
+	if type == types.WIND:
+		impulsex = 100
+		impulsey = -100
+		$art.play("wind")
 	elif type == types.STAR:
 		impulsex = 1500
 		impulsey = 200
@@ -34,8 +39,11 @@ func	setImpulse(type : types):
 func	_process(delta: float) -> void:
 	if has_overlapping_bodies() and !has_impulsed:
 		has_impulsed = true
-		if impulsex == 1500:
+		if $art.get_animation() == "star":
 			$starSound.play()
+		elif $art.get_animation() == "wind":
+			Global.extra_jump += 1
+			$hitSound.play()
 		else:
 			$hitSound.play()
 		for body in get_overlapping_bodies():
