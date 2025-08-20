@@ -11,12 +11,12 @@ func	_ready() -> void:
 		$"../transitionControl/transition".timeout.connect(Callable(self, "_on_transition_timeout"))
 
 func	_process(delta: float) -> void:
-	if Input.is_action_pressed("ui_left") and can_move:
+	if (Input.is_action_pressed("ui_left") or (Global.left_pressed and Global.screen_pressed)) and can_move:
 		velocity = Vector2.LEFT * speed * delta
 		move_and_slide()
 		$"../controls/left".play("down")
 		$"../controls/right".play("up")
-	elif Input.is_action_pressed("ui_right") and can_move:
+	elif (Input.is_action_pressed("ui_right") or (Global.right_pressed and Global.screen_pressed)) and can_move:
 		velocity = Vector2.RIGHT * speed * delta
 		move_and_slide()
 		$"../controls/right".play("down")
@@ -24,7 +24,7 @@ func	_process(delta: float) -> void:
 	else:
 		$"../controls/right".play("up")
 		$"../controls/left".play("up")
-	if Input.is_action_just_pressed("ui_accept") and has_peck and can_move:
+	if (Input.is_action_just_pressed("ui_accept") or (Global.space_pressed and Global.screen_pressed)) and has_peck and can_move:
 		has_peck = false
 		can_move = false
 		$collision.disabled = false
@@ -51,3 +51,27 @@ func _on_peck_timeout_timeout() -> void:
 func _on_transition_timeout() -> void:
 	print("changing scene")
 	get_tree().change_scene_to_packed(trans)
+
+func _on_move_left_button_down() -> void:
+	Global.left_pressed = true
+	Global.screen_pressed = true
+
+func _on_move_left_button_up() -> void:
+	Global.left_pressed = false
+	Global.screen_pressed = false
+
+func _on_move_right_button_down() -> void:
+	Global.right_pressed = true
+	Global.screen_pressed = true
+
+func _on_move_right_button_up() -> void:
+	Global.right_pressed = false
+	Global.screen_pressed = false
+
+func _on_peck_button_down() -> void:
+	Global.space_pressed = true
+	Global.screen_pressed = true
+
+func _on_peck_button_up() -> void:
+	Global.space_pressed = false
+	Global.screen_pressed = false

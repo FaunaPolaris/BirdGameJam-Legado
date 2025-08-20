@@ -21,3 +21,11 @@ func	impulse(forcex, forcey):
 
 func controlCamera():
 	$Camera2D.make_current()
+
+func _on_impulse_button_down() -> void:
+	Global.space_pressed = true
+	Global.screen_pressed = true
+
+func _on_impulse_button_up() -> void:
+	Global.space_pressed = false
+	Global.screen_pressed = false

@@ -1,10 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://csusdyfgyv2nr"]
+[gd_scene load_steps=13 format=3 uid="uid://csusdyfgyv2nr"]
 
 [ext_resource type="Script" uid="uid://8f0yn0q2fcd8" path="res://eatingMinigame/eater/eater.gd" id="1_5fu8t"]
 [ext_resource type="Texture2D" uid="uid://hg25lq2ijf4e" path="res://textures/character/batuira.png" id="2_dln4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bykbf"]
 size = Vector2(82, 103.5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dln4g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjpcr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ol0to"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hyuoy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6u7w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8voct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghvfr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymv3o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bc30y"]
 
 [node name="eater" type="CharacterBody2D"]
 script = ExtResource("1_5fu8t")
@@ -27,6 +45,21 @@ one_shot = true
 
 [node name="peckTimeout" type="Timer" parent="."]
 one_shot = true
+
+[node name="impulse" type="Button" parent="."]
+offset_left = -610.0
+offset_top = 316.0
+offset_right = 678.0
+offset_bottom = 500.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dln4g")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tjpcr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ol0to")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hyuoy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_v6u7w")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8voct")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ghvfr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ymv3o")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bc30y")
 
 [connection signal="timeout" from="peckTime" to="." method="_on_peck_time_timeout"]
 [connection signal="timeout" from="peckTimeout" to="." method="_on_peck_timeout_timeout"]

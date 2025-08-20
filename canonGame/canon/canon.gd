@@ -16,7 +16,7 @@ func	_ready():
 	$"../transitionControl".TransitionIn()
 
 func _process(delta : float):
-	if Input.is_action_pressed("ui_up") and $mouth.global_rotation_degrees > min_angle and !has_shot:
+	if (Input.is_action_pressed("ui_up") or (Global.up_pressed and Global.screen_pressed)) and $mouth.global_rotation_degrees > min_angle and !has_shot:
 		$mouth.global_rotation_degrees -= canon_speed * delta
 		$CannonWheel.global_rotation_degrees += canon_speed * delta
 		if can_move_sound:
@@ -25,7 +25,7 @@ func _process(delta : float):
 			$moveSoundTimer.start()
 		$"../controls/up".play("down")
 		$"../controls/down".play("up")
-	elif Input.is_action_pressed("ui_down") and $mouth.global_rotation_degrees < max_angle and !has_shot:
+	elif (Input.is_action_pressed("ui_down") or (Global.down_pressed and Global.screen_pressed)) and $mouth.global_rotation_degrees < max_angle and !has_shot:
 		$mouth.global_rotation_degrees += canon_speed * delta
 		$CannonWheel.global_rotation_degrees -= canon_speed * delta
 		if can_move_sound:
@@ -37,12 +37,12 @@ func _process(delta : float):
 	else:
 		$"../controls/down".play("up")
 		$"../controls/up".play("up")
-	if Input.is_action_just_pressed("ui_accept") and !has_shot:
+	if (Input.is_action_just_pressed("ui_accept") or (Global.space_pressed and Global.screen_pressed)) and !has_shot:
 		var new_main = main_character.instantiate()
+		print("doing the thing that should work")
 		var tween:Tween = self.create_tween();
 		tween.tween_property($mouth, "scale", Vector2.ONE * 4.3, 0.1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC);
 		tween.tween_property($mouth, "scale", Vector2.ONE * 4.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC);
-		has_shot = true
 		new_main.position = $mouth/tip.global_position
 		new_main.original_pos = new_main.position
 		new_main.supposed_rotation = $mouth.global_rotation_degrees - 90
@@ -53,7 +53,9 @@ func _process(delta : float):
 		$"../ceiling".followBullet(new_main)
 		$shotAudio.play()
 		$"../controls/Spacebar".play("down")
-	elif Input.is_action_just_pressed("ui_accept") and Global.extra_jump:
+		has_shot = true
+	elif (Input.is_action_just_pressed("ui_accept") or (Global.space_pressed and Global.screen_pressed)) and Global.extra_jump:
+		print("trying to extra jump")
 		main.impulse(500, -1200)
 		$extraJumpAudio.play()
 		Global.extra_jump -= 1
@@ -61,8 +63,6 @@ func _process(delta : float):
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	has_shot = false
 	$"../controls".show()
-	Global.extra_jump = 1
-
 
 func _on_move_sound_timer_timeout() -> void:
 	can_move_sound = true

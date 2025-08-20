@@ -9,9 +9,6 @@ var third_layer		: int = -1700
 
 func _on_floor_body_entered(body: Node2D) -> void:
 	$splashSound.play()
-#	$transitionControl.TransitionOut()
-#	$transitionControl/transition.start()
-#	$transitionControl/transition.timeout.connect(Callable(self, "_on_death"))
 
 func _on_death() -> void:
 	get_tree().change_scene_to_packed(end_screen)
@@ -53,3 +50,27 @@ func	spawnThirdLayer():
 	new_impulse.position.y = random_pos.y
 	new_impulse.setImpulse(randi_range(1,3))
 	add_child(new_impulse)
+
+func _on_impulse_button_down() -> void:
+	Global.space_pressed = true
+	Global.screen_pressed = true
+
+func _on_impulse_button_up() -> void:
+	Global.space_pressed = false
+	Global.screen_pressed = false
+
+func _on_angle_up_button_down() -> void:
+	Global.up_pressed = true
+	Global.screen_pressed = true
+
+func _on_angle_up_button_up() -> void:
+	Global.up_pressed = false
+	Global.screen_pressed = false
+
+func _on_angle_down_button_down() -> void:
+	Global.down_pressed = true
+	Global.screen_pressed = true
+
+func _on_angle_down_button_up() -> void:
+	Global.down_pressed = false
+	Global.screen_pressed = false

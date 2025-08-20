@@ -1,10 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5xl5nd4ofm1d"]
+[gd_scene load_steps=16 format=3 uid="uid://c5xl5nd4ofm1d"]
 
 [ext_resource type="Script" uid="uid://cadcfd4beb3wt" path="res://canonGame/mainCharacter/main_character.gd" id="1_exv1e"]
 [ext_resource type="Texture2D" uid="uid://hg25lq2ijf4e" path="res://textures/character/batuira.png" id="2_lhhoq"]
 [ext_resource type="PackedScene" uid="uid://ch4no1kmuawrs" path="res://canonGame/distanceCounter/distance_counter.tscn" id="3_lhhoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_me2vn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lhhoq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mspd1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7bky"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqnku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvl4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fv6jk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6ioh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0w6h2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2b77e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ldr6s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c0ew0"]
 
 [node name="mainCharacter" type="RigidBody2D"]
 rotation = -0.000905367
@@ -29,3 +51,23 @@ texture = ExtResource("2_lhhoq")
 limit_left = 0
 limit_top = -1700
 limit_bottom = 125
+
+[node name="impulse" type="Button" parent="Camera2D"]
+offset_left = -1126.0
+offset_top = -699.0
+offset_right = 1186.0
+offset_bottom = 815.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lhhoq")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mspd1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s7bky")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_gqnku")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fvl4i")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fv6jk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c6ioh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_0w6h2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2b77e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ldr6s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_c0ew0")
+
+[connection signal="button_down" from="Camera2D/impulse" to="." method="_on_impulse_button_down"]
+[connection signal="button_up" from="Camera2D/impulse" to="." method="_on_impulse_button_up"]

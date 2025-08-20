@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cga0pfgq2uhtx"]
+[gd_scene load_steps=21 format=3 uid="uid://cga0pfgq2uhtx"]
 
 [ext_resource type="Script" uid="uid://pg65pine2mbi" path="res://shared/end_screen.gd" id="1_eo55f"]
 [ext_resource type="Script" uid="uid://c8h377oquj7fv" path="res://shared/label_2.gd" id="1_ume5c"]
@@ -39,6 +39,28 @@ animations = [{
 
 [sub_resource type="LabelSettings" id="LabelSettings_ewu0w"]
 font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eo55f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hyfn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rgyl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ewu0w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yew2b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_31p2y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87kn4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f54q6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ir7om"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ej0ss"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_231r0"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -92,3 +114,21 @@ offset_right = 332.0
 offset_bottom = 689.0
 text = "restart"
 label_settings = SubResource("LabelSettings_ewu0w")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 1279.0
+offset_bottom = 719.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eo55f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8hyfn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8rgyl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ewu0w")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_yew2b")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_31p2y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_87kn4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_f54q6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ir7om")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej0ss")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_231r0")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
